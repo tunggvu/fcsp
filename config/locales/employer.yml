@@ -1,5 +1,28 @@
 en:
   employer:
+    articles:
+      sort:
+        title: " Title"
+        time: "Time show"
+      index:
+        new: "New Article"
+        continue: "Read more"
+      new:
+        new: "New Article"
+      article:
+        edit: "Edit"
+        delete: "Delete"
+        found_results: "Found %{total} results"
+      form:
+        now: "Now"
+        time: "Choose time"
+      create:
+        created: "Article has been created successfully"
+        fail: "Article has been created fail"
+      update:
+        update: "Article has been updated"
+      destroy:
+        delete: "Article has been deleted"
     sortaz: "Sort by A → Z"
     sortza: "Sort by Z → A"
     sortvalue: "Sort follow value..."
@@ -210,7 +233,7 @@ en:
         team_introduction_3: "Team Introduction 3"
         team_introduction_recruitment: "Team Introduction Recruiment"
         submit: "Submit"
-      danger: "Danger"  
+      danger: "Danger"
       not_found: "Team Introduction not found"
       success: "Successfully added team introduction"
       create_confirm: "Are you sure to set up this company introduction?"

@@ -1,39 +1,43 @@
 <%= render "header", user: @user %>
-<section id="content">
+<section>
   <div class="container">
-    <div class="col-md-12">
-      <div class="col-sm-8">
-        <div class="clearfix topmargin">
-          <% if @user.is_user? current_user %>
-            <div id="tab-new-feed" class="hide-tab active">
-              <%= render "new_feed" %>
+    <div class="row">
+      <div class="col-md-8">
+        <article class="post show-tab-user">
+          <div class="clearfix">
+            <% if @user.is_user? current_user %>
+              <div class="hide-tab active" id="tab-new-feed">
+                <%= render "new_feed" %>
+              </div>
+              <div class="clearfix hide-tab" id="tab-suggest-job">
+                <%= render "user_job" %>
+              </div>
+            <% end %>
+            <div class="hide-tab clearfix" id="tab-information">
+              <%= render "info_users/introduction" %>
+              <%= render "info_users/ambition" %>
+              <%= render "user_portfolios/user_portfolio" %>
+              <%= render "awards/user_award" %>
+              <%= render "user_works/work" %>
+              <%= render "user_education", user: @user %>
+              <%= render "user_link", user: @user %>
+              <%= render "user_projects/projects" %>
+              <%= render "user_certificate", user: @user %>
+              <%= render "user_languages" %>
             </div>
-            <div class="clearfix hide-tab" id="tab-suggest-job">
-              <%= render "user_job" %>
+            <div class="hide-tab clearfix" id="tab-posts">
+              <%= render "posts", user: @user %>
             </div>
-          <% end %>
-          <div class="hide-tab clearfix" id="tab-information">
-            <%= render "info_users/introduction" %>
-            <%= render "info_users/ambition" %>
-            <%= render "user_portfolios/user_portfolio" %>
-            <%= render "awards/user_award" %>
-            <%= render "user_works/work" %>
-            <%= render "user_education", user: @user %>
-            <%= render "user_link", user: @user %>
-            <%= render "user_projects/projects" %>
-            <%= render "user_certificate", user: @user %>
-            <%= render "user_languages" %>
+            <div class="clearfix hide-tab" id="tab-list-friend">
+              <%= render "list_friend", list_friends: @user_object.list_friends %>
+            </div>
           </div>
-          <div class="hide-tab clearfix" id="tab-posts">
-            <%= render "posts", user: @user %>
-          </div>
-          <div class="clearfix hide-tab" id="tab-list-friend">
-            <%= render "list_friend", list_friends: @user_object.list_friends %>
-          </div>
-        </div>
+        </article>
       </div>
-      <div class="col-sm-4">
-        <%= render "social_network" %>
+      <div class="col-md-4">
+        <article class="post show-tab-user">
+          <%= render "social_network" %>
+        </article>
       </div>
     </div>
   </div>

@@ -1,32 +1,31 @@
 <% provide :title, t(".title") %>
-<section id="content">
-  <div class="content-wrap">
-    <div class="container clearfix">
-      <div class="postcontent nobottommargin clearfix">
-        <div id="post" class="small-thumbs alt">
-          <%= render @jobs if @jobs.any? %>
-        </div>
-        <div id="paginator">
-          <%= paginate @jobs, remote: true %>
-        </div>
+<div class="container job-index-page">
+  <div class="row">
+    <div class="col-md-8 col-xs-12">
+      <article class="post" id="post">
+        <%= render @jobs if @jobs.any? %>
+      </article>
+      <div id="paginator">
+        <%= paginate @jobs, remote: true %>
       </div>
-      <div class="sidebar nobottommargin col_last clearfix">
-        <div class="sidebar-widgets-wrap">
-          <div class="widget clearfix">
-            <%= render "search_form" %>
-            <%= render "filter_form" %>
+    </div>
+    <div class="col-md-4 col-xs-12">
+      <div class="primary-sidebar">
+        <aside class="widget">
+          <%= render "search_form" %>
+          <%= render "filter_form" %>
+        </aside>
+        <aside class="widget">
+          <h3 class="text-center"><%= t ".popular_job" %></h3>
+          <hr>
+          <div id="popular-post-list-sidebar">
+            <% @jobs.last(Settings.jobs.popular).each do |popular| %>
+              <%= render "popular_job", job: popular %>
+            <% end %>
           </div>
-          <div class="widget clearfix">
-            <h3><%= t ".popular_job" %></h3>
-            <div id="popular-post-list-sidebar">
-              <% @jobs.last(5).each do |popular| %>
-                <%= render "popular_job", job: popular %>
-              <% end %>
-            </div>
-          </div>
-        </div>
+        </aside>
       </div>
     </div>
   </div>
-</section>
+</div>
 <%= javascript_include_tag "job" %>

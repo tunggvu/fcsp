@@ -10,7 +10,7 @@
                 <div class="col-sm-6">
                   <%= load_team_image @team, class: "img-upload" %><br>
                 </div>
-                <div class="col-sm-6"> 
+                <div class="col-sm-6">
                   <%= label_tag :name %>
                   <p><%= @team.name %></p>
                 </div>
@@ -29,7 +29,7 @@
                   </ul>
                   <div class="tab-content">
                     <% @team.team_introductions.each_with_index do |value, key| %>
-                        <div role="tabpanel" class="tab-pane <%= key = 0 ? "active" : "" %>" 
+                        <div role="tabpanel" class="tab-pane <%= key = 0 ? "active" : "" %>"
                           id="<%= key %>">
                           <%= value.content %>
                         </div>

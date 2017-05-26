@@ -1,10 +1,14 @@
+<h3 class="widget-title text-uppercase text-center"><%= t ".recommend" %></h3>
 <% @job_object.recommend.each do |user| %>
-  <div class="spost clearfix">
-    <div class="entry-image">
-      <%= load_user_avatar user, class: "img-circle" %>
-    </div>
-    <div class="entry-user">
-      <div class="entry-title">
+  <div class="thumb-latest-posts">
+    <div class="media">
+      <div class="media-left">
+        <%= link_to user, class: "popular-img" do %>
+          <%= load_user_avatar user %>
+          <div class="p-overlay"></div>
+        <% end %>
+      </div>
+      <div class="p-content">
         <h4><%= link_to user.name, user_path(user) %></h4>
       </div>
     </div>

@@ -12,7 +12,7 @@ namespace :education do
       4.times do |n|
         training.training_techniques.create technique_id: n + 1
       end
-      
+
       5.times do |i|
         course_params = {
           name: Faker::Name.name,

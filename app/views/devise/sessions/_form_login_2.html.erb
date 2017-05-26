@@ -1,0 +1,63 @@
+<div class="omb-login">
+  <div class="row">
+    <div class="col-xs-10 col-sm-10 col-xs-offset-1">
+      <h3 class="text-center"><%= t ".login" %></h3>
+      <%= form_for :user, url: session_path(:user),
+        class: "omb-loginform" do |f| %>
+        <div class="form-group">
+          <%= f.email_field :email, class: "form-control input-no-radius",
+            autofocus: true, placeholder: t(".email_address") %>
+        </div>
+        <span class="help-block"></span>
+        <div class="form-group">
+          <%= f.password_field :password,
+            class: "form-control not-dark input-no-radius", autocomplete: "off",
+            placeholder: t(".password") %>
+        </div>
+        <div class="form-group">
+          <% if devise_mapping.rememberable? %>
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          <% end %>
+        </div>
+        <%= f.submit t(".login"), class: "btn btn-login btn-block" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-10 col-sm-10 col-xs-offset-1">
+      <p class="omb-forgotpwd">
+        <%= link_to t(".forgot_password"), "#", class: "forgot-password" %>
+      </p>
+    </div>
+  </div>
+  <div class="row omb-loginor">
+    <div class="col-xs-10 col-sm-10 col-xs-offset-1">
+      <hr class="omb-hror">
+      <span class="omb-spanor"><%= t ".or" %></span>
+    </div>
+  </div>
+  <h4 class="omb-authtitle"><%= t ".login_or" %> <a href="#"><%= t ".sign_up" %></a></h4>
+  <div class="row omb-socialbuttons">
+    <div class="col-xs-10 col-sm-12">
+      <div class="btn-share">
+        <a href="#" class="btn omb-btn-facebook">
+          <i class="fa fa-facebook visible-xs"></i>
+          <span class="hidden-xs"><%= t ".facebook" %></span>
+        </a>
+      </div>
+      <div class="btn-share">
+        <a href="#" class="btn omb-btn-twitter">
+          <i class="fa fa-twitter visible-xs"></i>
+          <span class="hidden-xs"><%= t ".twitter" %></span>
+        </a>
+      </div>
+      <div class="btn-share">
+        <a href="#" class="btn omb-btn-google">
+          <i class="fa fa-google-plus visible-xs"></i>
+          <span class="hidden-xs"><%= t ".google" %></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

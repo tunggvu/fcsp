@@ -1,6 +1,6 @@
 <div id="object-member-modal" class="modal fade course-member" role="dialog">
   <div class="modal-dialog">
-    <div class="modal-content"> 
+    <div class="modal-content">
       <ul class="nav nav-tabs">
         <li class="active">
           <a href="#1" data-toggle="tab"><%= t ".add_member" %></a>
@@ -18,8 +18,8 @@
                   <div class="search_users">
                     <div class="form-group">
                       <%= text_field_tag :user_search, params[:user_search],
-                        placeholder: t(".search"), class: "form-control" %> 
-                    </div>        
+                        placeholder: t(".search"), class: "form-control" %>
+                    </div>
                   </div>
                 </div>
                 <div class="choose-all-member">
@@ -28,7 +28,7 @@
                     <%= t ".choose_all" %>
                   </label>
                 </div>
-                <div class="add-user-table">           
+                <div class="add-user-table">
                   <table class="table table-striped table-hover table-bordered">
                     <thead class="">
                       <tr>
@@ -38,16 +38,16 @@
                     <tbody id="list_users">
                       <%= render "list_users", users: users %>
                     </tbody>
-                  </table> 
+                  </table>
                 </div>
               </div>
             </div>
             <div class="footer text-center">
-              <button type="button" class="btn btn-primary defaut-btn" 
+              <button type="button" class="btn btn-primary defaut-btn"
                 id="btn-course-member">
                 <%= t ".add" %>
               </button>
-              
+
               <button type="button" class="btn btn-default" data-dismiss="modal">
                 <%= t ".close" %>
               </button>
@@ -60,13 +60,13 @@
               <div class="search-user-form">
                 <div class="search_added_users">
                   <div class="form-group">
-                    <%= text_field_tag :search_added_users, 
+                    <%= text_field_tag :search_added_users,
                       params[:search_added_users],
-                      placeholder: t(".search"), class: "form-control" %> 
+                      placeholder: t(".search"), class: "form-control" %>
                   </div>
                 </div>
               </div>
-              <div class="add-user-table">           
+              <div class="add-user-table">
                 <table class="table table-striped table-hover table-bordered">
                   <thead class="">
                     <tr>
@@ -74,14 +74,14 @@
                     </tr>
                   </thead>
                   <tbody id="list_added_users">
-                    <%= render "list_added_users", 
+                    <%= render "list_added_users",
                       users: course.users.by_active, course: course %>
                   </tbody>
-                </table> 
+                </table>
               </div>
             </div>
           </div>
-          <div class="footer text-center"> 
+          <div class="footer text-center">
             <button type="button" class="btn btn-default" data-dismiss="modal">
               <%= t ".close" %>
             </button>

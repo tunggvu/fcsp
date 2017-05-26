@@ -1,0 +1,54 @@
+<%= render "layouts/message" %>
+<%= form_for [:employer, @company, @article], html: {class: "form-article"} do |f| %>
+  <div class="row">
+    <div class="col-sm-4 form-left">
+      <div class="form-group">
+        <%= f.label :title %>
+        <%= f.text_area :title, required: true, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :description %>
+        <%= f.text_area :description, required: true,
+          class: "form-control article-description" %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :background_picture %>
+        <% unless @article.new_record? %>
+          <%= image_tag @article.images.first.picture, class: "img-responsive" %>
+        <% end %>
+        <%= f.fields_for :images do |ff| %>
+          <%= ff.file_field :picture, required: @article.new_record? %>
+        <% end %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :time_show %>
+        <% if @article.time_show? %>
+          <select name="show_time">
+            <option value="1"><%= t ".now" %></option>
+            <option value="2" selected="selected"><%= t ".time" %></option>
+          </select>
+          <%= f.datetime_field :time_show %>
+        <% else %>
+          <select name="show_time">
+            <option value="1"><%= t ".now" %></option>
+            <option value="2"><%= t ".time" %></option>
+          </select>
+          <%= f.datetime_field :time_show, class: "hide-time" %>
+        <% end %>
+      </div>
+
+      <div class="form-group">
+        <%= f.submit class: "btn btn-success form-control btn-qwe" %>
+      </div>
+    </div>
+    <div class="col-sm-8">
+      <div class="form-group">
+        <%= f.label :content %>
+        <%= f.text_area :content, class: "ckeditor form-control" %>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -29,7 +29,7 @@ module Supports
     end
 
     def shared_jobs
-      ShareJob.shared_jobs(shared_job_ids).includes(:job, user: :avatar)
+      ShareJob.shared_jobs(shared_job_ids).includes :job, user: :avatar
     end
 
     def list_friends

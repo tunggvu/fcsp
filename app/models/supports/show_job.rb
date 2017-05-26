@@ -15,15 +15,11 @@ module Supports
     end
 
     def members
-      company.users
-    end
-
-    def member_avatars
       company.users.includes :avatar
     end
 
     def jobs_company
-      company.jobs.limit(4)
+      company.jobs.limit Settings.jobs.company_limit
     end
 
     def company_address
@@ -51,13 +47,13 @@ module Supports
     end
 
     def recommend
-      User.recommend(@job).includes(:avatar)
+      User.recommend(@job).includes :avatar
     end
 
     def qualified_profile?
       requests = JSON.parse(@job.profile_requests).to_a
       (education? requests) && (portfolio? requests) && (introduce? requests) &&
-        (requests.exclude?("ambition") || @user.info_user.ambition.present?)
+        (requests.exclude?("ambition") || @user.info_user_ambition.present?)
     end
 
     private
@@ -71,7 +67,7 @@ module Supports
     end
 
     def introduce? requests
-      requests.exclude?("introduce") || @user.info_user.introduce.present?
+      requests.exclude?("introduce") || @user.info_user_introduce.present?
     end
   end
 end

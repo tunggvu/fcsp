@@ -39,12 +39,10 @@ class UserSocialNetworksController < ApplicationController
   end
 
   def get_link_social_network
-    {facebook: current_user.link_social_network("facebook"),
-    google: current_user.link_social_network("google"),
-    twitter: current_user.link_social_network("twitter"),
-    linkedin: current_user.link_social_network("linkedin"),
-    skype: current_user.link_social_network("skype"),
-    youtube: current_user.link_social_network("youtube"),
-    instagram: current_user.link_social_network("instagram")}
+    networks = %w(facebook google twitter linkedin skype youtube instagram)
+    networks.each_with_object({}) do |network, links|
+      links[network.to_s] = current_user.link_social_network(network)
+      links
+    end
   end
 end

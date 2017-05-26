@@ -83,13 +83,7 @@
   padding: 2px;
 }
 
-.job-show-cover-wrapper {
-  border: 1px solid $gray-ddd;
-  border-radius: 10px;
-}
-
 .cover-image {
-  border: 1px solid $gray-ddd;
   border-radius: 10px;
 
   a img {
@@ -361,7 +355,6 @@
   justify-content: flex-start;
 
   .job-row {
-    margin-right: 35px;
 
     img {
       height: auto;

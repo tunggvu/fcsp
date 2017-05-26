@@ -1,0 +1,239 @@
+@import 'variables/color';
+// lg
+@media (min-width: 1200px) {
+  .show-search {
+    right: 25px;
+  }
+
+  .main-content-site {
+    padding-top: 82px;
+  }
+
+  .btn-bookmark {
+    background: transparent;
+    position: fixed;
+    right: 20px;
+    top: 100px;
+    z-index: 3;
+  }
+}
+
+
+// md
+@media (min-width: 992px) and (max-width: 1199px) {
+  .nav > li > a {
+    padding: 15px 10px;
+  }
+
+  .main-content-site {
+    padding-top: 82px;
+  }
+
+  .show-search {
+    right: 25px;
+  }
+
+  .btn-bookmark {
+    background: transparent;
+    position: fixed;
+    right: 20px;
+    top: 100px;
+    z-index: 3;
+  }
+}
+
+
+// sm
+@media (min-width: 768px) and (max-width: 991px) {
+  .main-menu .navbar-brand > img {
+    display: block;
+    margin-right: 0;
+    padding: 14px 0;
+  }
+
+  .main-menu .navbar-header {
+    float: none;
+    text-align: center;
+    width: 100%;
+  }
+
+  .main-menu .navbar-brand {
+    float: none;
+  }
+
+  .main-menu .navbar-nav > li {
+    float: none;
+  }
+
+  .main-menu .navbar-nav {
+    float: none;
+    text-align: center;
+    width: 100%;
+  }
+
+  .nav > li > a {
+    padding: 11px;
+  }
+
+  .i-con {
+    float: none;
+    padding-right: 40px;
+    position: relative;
+    text-align: center;
+    width: 100%;
+  }
+
+  .i-con a i {
+    color: $gray-aaa;
+    font-size: 15px;
+    line-height: 35px;
+    padding: 0 5px 10px;
+  }
+
+  .show-search {
+    left: 33px;
+    top: -2px;
+  }
+
+  .widget img {
+    width: 100%;
+  }
+
+  .main-content-site {
+    padding-top: 170px;
+  }
+
+  .btn-bookmark {
+    background: transparent;
+    bottom: 76px;
+    position: fixed;
+    right: 20px;
+    z-index: 3;
+  }
+}
+
+// xs
+@media (max-width: 767px) {
+  .show-search {
+    left: 30px;
+    top: 8px;
+  }
+
+  .menu-left {
+    float: none;
+  }
+
+  .icon-right {
+    float: left;
+    margin-left: -17px;
+  }
+
+  .i-con {
+    float: left;
+    margin-left: -17px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .i-con a i {
+    color: $gray-aaa;
+    font-size: 15px;
+    line-height: 24px;
+    padding: 15px 5px;
+  }
+
+  .main-menu ul {
+    .sub-menu,
+    .children {
+      left: 120px;
+      top: 17px;
+    }
+  }
+
+  .main-menu .navbar-brand > img {
+    padding: 0;
+  }
+
+  .navbar-header {
+    padding: 15px 0;
+  }
+
+  .main-menu li {
+    display: block;
+  }
+
+  .navbar-nav > li > a {
+    line-height: 22px;
+  }
+
+  .widget img {
+    width: 95px;
+  }
+
+  .location-content img {
+    width: 100%;
+  }
+
+  .navbar-nav {
+    text-align: center;
+  }
+
+  .main-content-site {
+    padding-top: 95px;
+  }
+
+  .navbar-brand {
+    padding: 8px 35px;
+  }
+
+  .btn-bookmark {
+    background: transparent;
+    bottom: 76px;
+    position: fixed;
+    right: 20px;
+    z-index: 3;
+  }
+
+  .notification-header {
+    display: block;
+  }
+
+  .i-con {
+    .friend-ship-show,
+    .message-show,
+    .profile {
+      display: none;
+    }
+  }
+
+  .omb-socialbuttons {
+    padding-left: 58px;
+  }
+
+  .post-thumb-overlay {
+
+    .show-post-thumb-job {
+      bottom: 172px;
+      position: absolute;
+      right: 161px;
+      width: 100%;
+    }
+
+    div {
+      height: 32px;
+      line-height: 32px;
+      top: 80%;
+    }
+  }
+}
+
+// XS Portrait
+@media (max-width: 479px) {
+}
+
+@media (min-width: 768px) {
+  .omb-login .omb-forgotpwd {
+    margin-top: 10px;
+    text-align: right;
+  }
+}

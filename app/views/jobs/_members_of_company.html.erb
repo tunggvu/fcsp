@@ -1,39 +1,12 @@
-<section class="job-show-main-section job-show-section-members">
-  <header>
-    <div class="row">
-      <div class="website-company col-md-7">
-        <%= @job.company_name %>
-        <%= t ".members" %>
-        <a class="btn btn-info" href="#">
-          <%= t ".views_all" %>
-           ( <%= @job_object.members.size if @job_object.members.present? %> )
-        </a>
-      </div>
-      <% if can? :manage, @job %>
-        <span class="header-btn">
-          <a class="btn btn-default .btn-xs hr-edit col-md-2" href="#">
-            <%= t ".edit_posting" %>
-          </a>
-        </span>
-      <% end %>
-    </div>
-  </header>
-  <div class="job-show-member-wrapper">
-    <% if @job_object.members.present? %>
-      <ul class="members cf">
-        <% @job_object.member_avatars
-          .limit(Settings.jobs.limit_user_show).each do |member| %>
-          <li>
-            <a data-ref="staffing">
-              <div class="member-photo">
-                <%= link_to load_user_avatar(member,
-                  size: Settings.jobs.image_member_size), member %>
-              </div>
-              <h5><%= member.name %></h5>
-            </a>
-          </li>
-        <% end %>
-      </ul>
+<h3 class="widget-title text-uppercase text-center">
+  <%= t ".members", company: @job.company_name %>
+</h3>
+<div class="instragram-follow">
+  <% if @job_object.members.present? %>
+    <% @job_object.members
+      .limit(Settings.jobs.limit_user_show).each do |member| %>
+      <%= link_to load_user_avatar(member,
+        width: Settings.jobs.image_member_size), member %>
     <% end %>
-  </div>
-</section>
+  <% end %>
+</div>

@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="col-md-5">
+        <div>
+            <%= render "articles/sort" %>
+          </div>
+      </div>
+      <div class="col-sm-11 list-article">
+        <%= render "article" %>
+      </div>
+      <div class="col-sm-11 pagination-article">
+        <%= render "articles/paginate" %>
+      </div>
+      <div class="new-article">
+        <%= link_to new_employer_company_article_path(@company),
+          class: "btn btn-primary btn-circle btn-xl" do %>
+            <i class="glyphicon glyphicon-plus" ></i>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

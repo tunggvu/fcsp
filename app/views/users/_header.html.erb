@@ -1,142 +1,127 @@
-<%= render "change_avatar", user: user if user.is_user? current_user %>
-<%= render "change_cover", user: user if user.is_user? current_user %>
-
-<div class="wrapper">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <header id="header">
-          <div class="cover-image">
-            <% if user.is_user? current_user %>
-              <%= load_user_cover user, class: "img-cover my-img-cover" %>
-              <div class="shadow"></div>
-              <div class="ico-upload-cover margintop" data-toggle="modal"
-                data-target="#changeCoverModal">
-                <h3 class="glyphicon glyphicon-camera" align="center"></h3>
-                <p><%= t ".change_cover" %></p>
-              </div>
-            <% else %>
-              <%= load_user_cover user, class: "img-cover" %>
-              <div class="shadow"></div>
-            <% end %>
-          </div>
-          <nav class="navbar navbar-default">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mainNav">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand avatar-user" href="#" data-toggle="modal"
-                data-target="#changeAvatarModal">
-                <% if user.is_user? current_user %>
-                  <%= load_user_avatar user, class: "img-avatar" %>
-                  <div class="icon-upload-avatar">
-                    <h3 class="glyphicon glyphicon-camera"></h3>
-                  </div>
-                <% else %>
-                  <%= load_user_avatar user, class: "img-avatar" %>
-                <% end %>
-              </a>
-              <span class="site-name"><b><%= user.name %></b></span>
-              <span class="site-description"><%= user.email %></span>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <article class="show-header-user post">
+        <div class="cover-image">
+          <% if user.is_user? current_user %>
+            <%= load_user_cover user, class: "img-cover my-img-cover" %>
+            <div class="ico-upload-cover" data-toggle="modal"
+              data-target="#changeCoverModal">
+              <%= icon "camera" %>
+              <span><%= t ".change_cover" %></span>
             </div>
+          <% else %>
+            <%= load_user_cover user, class: "img-cover" %>
+          <% end %>
+        </div>
+        <a class="navbar-brand avatar-user" href="#" data-toggle="modal"
+          data-target="#changeAvatarModal">
+          <% if user.is_user? current_user %>
+            <%= load_user_avatar user, class: "img-avatar" %>
+            <div class="icon-upload-avatar">
+              <h3 class="glyphicon glyphicon-camera"></h3>
+            </div>
+          <% else %>
+            <%= load_user_avatar user, class: "img-avatar" %>
+          <% end %>
+        </a>
+        <span class="site-name"><b><%= user.name %></b></span>
+        <span class="site-description"><%= user.email %></span>
+        <div class="request-user">
+          <% if user.is_user? current_user %>
+            <div class="margin-seven">
+              <%= render "friend_ship_form" %>
+            </div>
+          <% else %>
+            <div class="dropdown">
+              <button class="btn btn-default btn-xs dropdown-toggle margin-seven"
+                type="button" data-toggle="dropdown">
+                <span class="glyphicon glyphicon-plus"></span>
+                <%= t ".add_profile_section" %>
+                <span class="caret"></span>
+              </button>
+              <div class="dropdown-menu add-infomation">
+                <div class="clearfix">
+                  <div class="accordion margin-seven">
+                    <div class="acctitle">
+                      <i class="acc-closed icon-ok-circle"></i>
+                      <i class="acc-open icon-remove-circle"></i>
+                      <%= t ".background" %>
+                    </div>
 
-            <div class="collapse navbar-collapse" id="mainNav" >
-              <ul class="nav main-menu navbar-nav user-show">
-                <li class="active">
-                  <a href="#" data-target="tab-new-feed">
-                    <i class="icon-rss2"></i> <b><%= t ".new_feed" %></b>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" data-target="tab-information">
-                    <i class="icon-info-sign"> <b></i> <%= t ".infomation" %></b>
-                  </a>
-                </li>
-                <li>
-                  <a href="#" data-target="tab-posts">
-                    <i class="icon-pencil2"></i> <b><%= t ".posts" %></b>
-                  </a>
-                </li>
-                <% if @user.is_user? current_user %>
-                  <li>
-                    <a href="#" data-target="tab-suggest-job">
-                      <i class="icon-lightbulb"></i> <b><%= t ".job_suggest" %></b>
-                    </a>
-                  </li>
-                <% end %>
-                <li>
-                  <a href="#" data-target="tab-list-friend">
-                    <i class="icon-users"></i>
-                    <b><%= t ".friends" %>
-                      <% if @user_object.list_friends.present? %>
-                        (<%= @user_object.list_friends.size %>)
-                      <% end %></b>
-                  </a>
-                </li>
-              </ul>
-
-              <div class="nav navbar-nav navbar-right">
-                <% if user_signed_in? && !user.is_user?(current_user) %>
-                  <div class="margin-seven">
-                    <%= render "friend_ship_form" %>
-                  </div>
-                <% else %>
-                  <div class="dropdown">
-                    <button class="btn btn-primary dropdown-toggle margin-seven"
-                      type="button" data-toggle="dropdown">
-                      <span class="glyphicon glyphicon-plus"></span>
-                        <%= t ".add_profile_section" %>
-                    <span class="caret"></span></button>
-                    <div class="dropdown-menu add-infomation">
-                      <div class="clearfix">
-                        <div class="accordion margin-seven">
-                          <div class="acctitle">
-                            <i class="acc-closed icon-ok-circle"></i>
-                            <i class="acc-open icon-remove-circle"></i>
-                            <%= t ".background" %>
-                          </div>
-
-                          <div class="acc_content clearfix">
-                            <div class="top-cart-item clearfix">
-                              <%= link_to new_user_language_path, remote: true do %>
-                                <i class="i-circled i-light i-small icon-plus"></i>
-                              <% end %>
-                              <div class="top-cart-item-desc">
-                                <b><%= t ".add_language" %></b>
-                                <span class="top-cart-item-price"><%= t ".add_language_description" %></span>
-                              </div>
-                            </div>
-                          </div>
-
-                          <div class="acctitle">
-                            <i class="acc-closed icon-ok-circle"></i>
-                            <i class="acc-open icon-remove-circle"></i>
-                            <%= t ".skills" %>
-                          </div>
-                          <div class="acc_content clearfix">
-                          </div>
-
-                          <div class="acctitle">
-                            <i class="acc-closed icon-ok-circle"></i>
-                            <i class="acc-open icon-remove-circle"></i>
-                            <%= t ".accomplishments" %>
-                          </div>
-
-                          <div class="acc_content clearfix">
-                          </div>
+                    <div class="acc_content clearfix">
+                      <div class="top-cart-item clearfix">
+                        <%= link_to new_user_language_path, remote: true do %>
+                          <i class="i-circled i-light i-small icon-plus"></i>
+                        <% end %>
+                        <div class="top-cart-item-desc">
+                          <b><%= t ".add_language" %></b>
+                          <span class="top-cart-item-price"><%= t ".add_language_description" %></span>
                         </div>
                       </div>
                     </div>
+
+                    <div class="acctitle">
+                      <i class="acc-closed icon-ok-circle"></i>
+                      <i class="acc-open icon-remove-circle"></i>
+                      <%= t ".skills" %>
+                    </div>
+                    <div class="acc_content clearfix">
+                    </div>
+
+                    <div class="acctitle">
+                      <i class="acc-closed icon-ok-circle"></i>
+                      <i class="acc-open icon-remove-circle"></i>
+                      <%= t ".accomplishments" %>
+                    </div>
+
+                    <div class="acc_content clearfix">
+                    </div>
                   </div>
-                <% end %>
+                </div>
               </div>
             </div>
-          </nav>
-        </header>
-      </div>
+          <% end %>
+        </div>
+        <div id="mainNav" >
+          <ul class="main-menu user-show">
+            <li class="active">
+              <a data-target="tab-new-feed">
+                <i class="icon-rss2"></i> <b><%= t ".new_feed" %></b>
+              </a>
+            </li>
+            <li>
+              <a data-target="tab-information">
+                <i class="icon-info-sign"> </i><b> <%= t ".infomation" %></b>
+              </a>
+            </li>
+            <li>
+              <a data-target="tab-posts">
+                <i class="icon-pencil2"></i> <b><%= t ".posts" %></b>
+              </a>
+            </li>
+            <% if @user.is_user? current_user %>
+              <li>
+                <a data-target="tab-suggest-job">
+                  <i class="icon-lightbulb"></i> <b><%= t ".job_suggest" %></b>
+                </a>
+              </li>
+            <% end %>
+            <li>
+              <a data-target="tab-list-friend">
+                <i class="icon-users"></i>
+                <b><%= t ".friends" %>
+                  <% if @user_object.list_friends.present? %>
+                    (<%= @user_object.list_friends.size %>)
+                  <% end %>
+                </b>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </article>
     </div>
   </div>
 </div>
+<%= render "change_avatar", user: user if user.is_user? current_user %>
+<%= render "change_cover", user: user if user.is_user? current_user %>

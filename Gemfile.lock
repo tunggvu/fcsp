@@ -494,6 +494,7 @@ DEPENDENCIES
   faker
   ffaker
   figaro
+  font-awesome-sass (~> 4.7.0)
   gentelella-rails
   geocoder
   globalize!

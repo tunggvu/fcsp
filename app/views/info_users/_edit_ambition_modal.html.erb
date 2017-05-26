@@ -8,7 +8,7 @@
       <%= simple_form_for @info_user, remote: :true,
         html: {id: "edit-ambition-form"} do |f| %>
         <div class="modal-body">
-          <%= f.input :ambition, as: :text, placeholder: t(".ambition_placeholder"), 
+          <%= f.input :ambition, as: :text, placeholder: t(".ambition_placeholder"),
             class: "sm-form-control modal-txta",
             rows: Settings.info_users.ambition_form_rows %>
         </div>

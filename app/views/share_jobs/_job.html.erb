@@ -1,7 +1,7 @@
 <div class="entry clearfix">
   <div class="entry-image">
     <%= link_to job, data:{lightbox: "image"} do %>
-      <%= image_tag job.images.present? ? job.images.first : "default.jpg" %>
+      <%= load_image_job job %>
     <% end %>
   </div>
   <div class="entry-c">

@@ -12,13 +12,11 @@
  *
  *= require_tree ../../../vendor/assets/stylesheets/
  *= require_tree ./variables
- *= require_tree ./education
  *= require sweetalert2
  *= require_self
  *= require custom
  *= require company_info
- *= require job
- *= require user
+ *= require tooltip
  *= require friend_ships
  *= require info_users
  *= require user_portfolios
@@ -28,8 +26,14 @@
  *= require user_link
  *= require certificates
  *= require likes
+ *= require responsive
+ *= require pagination
+ *= require job
+ *= require user
  */
 
 @import 'social-share-button';
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+@import 'font-awesome-sprockets';
+@import 'font-awesome';

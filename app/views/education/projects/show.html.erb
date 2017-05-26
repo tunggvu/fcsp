@@ -40,10 +40,10 @@
 <section id="content">
   <div class="content-wrap content-wrap-custom">
     <div class="container clearfix">
-      <%= render partial: "detail_project", locals: {project: @project,
+      <%= render "detail_project", project: @project,
         relations: @show_projects.relations, techniques: @techniques,
         project_members: @show_projects.project_members,
-        rate: (@show_projects.get_rate(current_user.id) if user_signed_in?)} %>
+        rate: (@show_projects.get_rate(current_user.id) if user_signed_in?) %>
     </div>
   </div>
 </section>

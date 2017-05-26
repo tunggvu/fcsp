@@ -7,7 +7,7 @@
       <div class="job-title-content">
         <%= link_to team.name, nil, class: "job-title" %>
         <div>
-          <%= link_to t("companies.teams.show_team"), 
+          <%= link_to t("companies.teams.show_team"),
             employer_company_team_path(company_id: @company.id, id:team.id) %>|
           <%= link_to t("companies.teams.edit_team"), edit_employer_company_team_path(company_id: @company.id, id:team.id) %>
         </div>

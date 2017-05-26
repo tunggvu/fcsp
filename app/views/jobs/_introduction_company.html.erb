@@ -1,41 +1,44 @@
-<section class="job-show-main-section">
-  <header>
-    <div class="row">
-      <h4 class="title-section col-md-9"><%= t ".what_we_do" %></h4>
-    </div>
-  </header>
-  <% @job_object.team_introduction.each do |team_introduction| %>
-    <div class="row margin-section">
-      <div class="col col-md-3">
-        <% if team_introduction.images.present? %>
-          <% if team_introduction.images.count == 1 %>
-            <%= image_tag team_introduction.images.first.picture,
-              size: Settings.jobs.image_job_size %>
-          <% else %>
-            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-              <div class="carousel-inner" role="listbox">
-                <div class="item active">
-                  <%= image_tag team_introduction.images.first.picture,
-                    size: Settings.jobs.image_job_size %>
-                </div>
-                <% team_introduction.images.drop(1).each do |image_introduce| %>
-                  <div class="item">
-                    <%= image_tag image_introduce.picture,
-                      size: Settings.jobs.image_job_size %>
+<% if @job_object.team_introduction.any? %>
+  <div class="what-we-do">
+    <h3 class="entry-title"><%= t ".what_we_do" %></h3>
+    <% @job_object.team_introduction.each do |team_introduction| %>
+      <div class="row margin-section team-introduction">
+        <div class="col-md-3 text-center col-xs-3">
+          <% if team_introduction.images.present? %>
+            <% if team_introduction.images.count == 1 %>
+              <%= image_tag team_introduction.images.first.picture,
+                size: Settings.jobs.image_job_size,
+                class: "img-responsive img-thumbnail" %>
+            <% else %>
+              <div id="carousel-example-generic" class="carousel slide"
+                data-ride="carousel">
+                <div class="carousel-inner" role="listbox">
+                  <div class="item active">
+                    <%= image_tag team_introduction.images.first.picture,
+                      size: Settings.jobs.image_job_size,
+                      class: "img-responsive img-thumbnail" %>
                   </div>
-                <% end %>
+                  <% team_introduction.images.drop(1).each do |image_introduce| %>
+                    <div class="item">
+                      <%= image_tag image_introduce.picture,
+                        size: Settings.jobs.image_job_size,
+                        class: "img-responsive img-thumbnail" %>
+                    </div>
+                  <% end %>
+                </div>
               </div>
-            </div>
+            <% end %>
+          <% else %>
+            <%= image_tag Settings.jobs.team_intro_default,
+              size: Settings.jobs.image_job_size,
+              class: "img-responsive img-thumbnail" %>
           <% end %>
-        <% else %>
-          <%= image_tag Settings.jobs.team_intro_default,
-            size: Settings.jobs.image_job_size %>
-        <% end %>
+        </div>
+        <div class="col col-md-9">
+          <b><%= team_introduction.title %></b>
+          <p><%= team_introduction.content %></p>
+        </div>
       </div>
-      <div class="col col-md-9">
-        <b><%= team_introduction.title %></b>
-        <p><%= team_introduction.content %></p>
-      </div>
-    </div>
-  <% end %>
-</section>
+    <% end %>
+  </div>
+<% end %>

@@ -1,4 +1,4 @@
-<div class="fancy-title topmargin title-border-custom">
+<div class="fancy-title title-border-custom">
   <h4><%= t ".about_me" %></h4>
   <% if @user.is_user? current_user %>
     <a href="#" id="edit-quote" data-toggle="modal"
@@ -11,7 +11,7 @@
 <% if @user.info_user.present? %>
   <div class="block-quote education-info">
     <p>
-      <%= quote_content @user.info_user.quote %>
+      <%= quote_content @user.info_user_quote %>
       <% if @user.is_user? current_user %>
         <span class="edit-education">
           <span class="pull-right nomargin">
@@ -30,7 +30,7 @@
     <div class="top-cart-item-desc">
       <b><%= t ".address" %></b>
       <span class="top-cart-item-price" id="address-information">
-        <%= @user.info_user.address %>
+        <%= @user.info_user_address %>
       </span>
     </div>
   </div>
@@ -39,12 +39,12 @@
     <div class="top-cart-item-desc">
       <b><%= t ".phone" %></b>
       <span class="top-cart-item-price" id="phone-information">
-        <%= @user.info_user.phone %>
+        <%= @user.info_user_phone %>
       </span>
     </div>
   </div>
 <% end %>
-<div class="fancy-title topmargin title-border-custom">
+<div class="title-border-custom clearfix">
   <h4><%= t ".social_profiles" %></h4>
   <% if @user.is_user? current_user %>
     <a href="#" data-toggle="modal"
@@ -54,7 +54,7 @@
     <%= render "edit_social_network_modal", user: @user %>
   <% end %>
 </div>
-<div class="list-social-network">
+<div class="list-social-network clearfix">
   <a href="<%= @user.link_social_network "facebook" %>" target="_blank"
     class="social-icon si-facebook si-small si-rounded si-light"
     title="<%= t ".facebook" %>">

@@ -8,7 +8,7 @@
       <%= simple_form_for @info_user, remote: :true,
         html: {id: "edit-quote-form"} do |f| %>
         <div class="modal-body">
-          <%= f.input :quote, as: :text, placeholder: t(".quote_placeholder"), 
+          <%= f.input :quote, as: :text, placeholder: t(".quote_placeholder"),
             class: "sm-form-control modal-txta",
             rows: Settings.info_users.quote_form_rows %>
         </div>

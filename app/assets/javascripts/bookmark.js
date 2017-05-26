@@ -10,12 +10,12 @@ var bookmark = {
 
   add_bookmark: function() {
 
-    $('body').on('click', '.add_bookmark', function() {
+    $('body').on('click', '.add-bookmark', function() {
       var self = $(this);
       var job = $(this).attr('id');
       $.post('/bookmarks/', {id: job}, function() {
-        self.removeClass('button-green add_bookmark')
-          .addClass('rm_bookmark');
+        self.removeClass('add-bookmark')
+          .addClass('btn-bookmarled rm_bookmark');
         self.prop('title', I18n.t('jobs.bookmark.unbookmark'));
         self.find('span').text(I18n.t('jobs.bookmark.bookmarked'));
       });
@@ -32,8 +32,8 @@ var bookmark = {
         url: '/bookmarks/' + job,
         type: 'DELETE',
         success: function() {
-          self.removeClass('buttonrm_bookmark')
-            .addClass('add_bookmark button-green');
+          self.removeClass('rm_bookmark btn-bookmarled')
+            .addClass('add-bookmark');
           self.prop('title', I18n.t('jobs.bookmark.bookmark_job'));
           self.find('span').text(I18n.t('jobs.bookmark.bookmark'));
         }

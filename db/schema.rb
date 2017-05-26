@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170524082023) do
+ActiveRecord::Schema.define(version: 20170525040957) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20170524082023) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "description"
+    t.datetime "time_show"
     t.index ["company_id"], name: "index_articles_on_company_id", using: :btree
     t.index ["title"], name: "index_articles_on_title", using: :btree
     t.index ["user_id"], name: "index_articles_on_user_id", using: :btree
@@ -585,12 +586,10 @@ ActiveRecord::Schema.define(version: 20170524082023) do
     t.string   "title"
     t.text     "content"
     t.integer  "author_id"
-    t.integer  "likes_count",    default: 0
-    t.integer  "comments_count", default: 0
     t.string   "postable_type"
     t.integer  "postable_id"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.index ["postable_type", "postable_id"], name: "index_posts_on_postable_type_and_postable_id", using: :btree
   end
 

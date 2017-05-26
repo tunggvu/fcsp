@@ -1,7 +1,7 @@
 <% if company.followed_by? current_user %>
-  <%= link_to t(".unfollow"), "#", 
+  <%= link_to t(".unfollow"), "#",
     class: "btn btn-danger btn-follow unfollow-company" %>
 <% else %>
-  <%= link_to t(".follow"), "#", 
+  <%= link_to t(".follow"), "#",
     class: "btn btn-warning btn-follow follow-company" %>
 <% end %>

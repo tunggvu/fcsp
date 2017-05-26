@@ -4,7 +4,7 @@
     <div class="container">
       <div class="row">
         <% @job_object.jobs_company.each do |job| %>
-          <div class="job-row col-md-3 col-sm-6 col-xm-12">
+          <div class="job-row col-md-3 col-sm-6 col-xm-12 text-left">
             <% if job.images.first.present? %>
               <%= link_to image_tag(job.images.first.picture,
                 size: Settings.jobs.image_job_size), job_path(job) %>
@@ -14,7 +14,7 @@
             <% end %>
             <p class="job-posting-title"><%= link_to job.title, job_path(job) %></p>
           </div>
-        <% end %>  
+        <% end %>
       </div>
     </div>
   </div>

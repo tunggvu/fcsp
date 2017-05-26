@@ -64,24 +64,6 @@ RSpec.describe UserPostsController, type: :controller do
     end
   end
 
-  describe "GET #edit" do
-    context "not logged in user" do
-      before{sign_out user}
-
-      it "redirect to login page" do
-        get :edit, params: {id: user_post}
-        expect(response).to redirect_to new_user_session_path
-      end
-    end
-
-    context "logged in user" do
-      it "render edit template" do
-        get :edit, params: {id: user_post}
-        expect(response).to render_template :edit
-      end
-    end
-  end
-
   describe "PATCH #update" do
     context "update valid params" do
       it "save success" do

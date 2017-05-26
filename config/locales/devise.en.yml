@@ -54,6 +54,18 @@ en:
         twitter: "Twitter"
         or_login_with: "Or login with"
         forgot_password: "Forgot your password?"
+      form_login_2:
+        login: "Login"
+        facebook: "Facebook"
+        twitter: "Twitter"
+        google: "Google+"
+        login_or: "Login or"
+        sign_up: "Sign up"
+        email_address: "email address"
+        password: "Password"
+        or: "Or"
+        or_login_with: "Or login with"
+        forgot_password: "Forgot your password?"
     unlocks:
       send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
       send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."

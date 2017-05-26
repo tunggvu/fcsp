@@ -60,7 +60,8 @@ class User < ApplicationRecord
 
   accepts_nested_attributes_for :info_user
 
-  delegate :introduce, to: :info_user, prefix: true
+  delegate :introduce, :ambition, :address, :phone, :quote, to: :info_user,
+    prefix: true
 
   enum role: [:user, :admin]
   enum education_status: [:blocked, :active], _prefix: true
@@ -157,7 +158,7 @@ class User < ApplicationRecord
   end
 
   def is_user? user
-    self == user
+    user == self
   end
 
   def send_email_request_friend user

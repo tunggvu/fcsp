@@ -14,6 +14,7 @@ education:
     course_count: 356
     trainee_count: 608
     trainer_count: 24
+    logo_footer_size: 72
     need_content_img: "/assets/images/services/apl.png"
     our_techniques_center_img: "/assets/images/services/iphone7.png"
     client_img_3: "/assets/images/testimonials/logo_top_teamlab.png"
@@ -168,7 +169,9 @@ jobs:
   posting_job_default: "/assets/posting_job_default.jpg"
   team_intro_default: "/assets/team_intro.png"
   max_length_title: 20
-  words_count: 10
+  words_count: 30
+  popular: 5
+  company_limit: 4
 industries:
   max_length_name: 50
 activity:

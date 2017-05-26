@@ -12,7 +12,7 @@ en:
     show:
       apply_job: "Apply Job"
       person_applied: "Currently %{candidate} person has applied."
-      location: "Location"
+      location: "%{company_name} Location"
       recommend: "Recommend"
       apply_modal_header: "We have notified %{company_name} of your interest."
       interest_heading: "Please tell us what you are interested in."
@@ -31,6 +31,7 @@ en:
       cancel: "Cancel"
       edit_profile: "Edit my profile"
       no_result: "No one matches these skills"
+      total_views: "Total views"
     index:
       popular_job: "Popular Jobs"
       title: "List jobs"
@@ -42,7 +43,7 @@ en:
         job_type: "Job type"
         total_views: "Total views"
     members_of_company:
-      members: "members"
+      members: "%{company} members"
       views_all: "All members"
       edit_posting: "Edit posting"
     introduction_company:
@@ -76,6 +77,7 @@ en:
       bookmark: "Bookmark"
       bookmark_job: "Bookmark job"
       bookmarked: "Bookmarked"
+      unbookmark: "Unbookmark"
     candidate:
       apply_job: "Apply Job"
       unapply_job: "Unapply Job"
@@ -86,8 +88,12 @@ en:
       type_of_candidates: "Type of candidates: "
       share: " Share"
       unshare: " Unshare"
+      comments: "comments"
     recommend_user:
       show_more: "View more"
+      recommend: "Recommend"
+    message:
+      message: "Messages"
   follow_companies:
     create:
       follow: "follow company successfully!"
@@ -135,12 +141,13 @@ en:
       messages: "Messages"
       help: "Help"
       about: "About"
-      login: "Login"
+      login: "Sign in"
       logout: "Logout"
       profile: "Profile"
       message: "Messages"
       sign_out: "Sign out"
       create_new_post: "Create new post"
+      search: "Search and hit enter..."
     job_bookmark:
       bookmark: "Bookmark"
       bookmarked: "Bookmarked"

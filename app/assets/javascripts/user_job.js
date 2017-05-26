@@ -1,5 +1,8 @@
 $(function() {
   loadMore.initialize();
+  $('.search-form-job .fa-search').click(function(){
+    $('.show-search').toggle();
+  });
 });
 
 var loadMore = {
@@ -9,6 +12,9 @@ var loadMore = {
   },
 
   lazyLoad: function(id) {
+    if(!$(id + ' .pagination').is(':visible')) {
+      $(id + ' .load-more').remove();
+    }
     $(id + ' .pagination').hide();
     $(document).delegate(id + ' .load-more', 'click', function() {
       var url = $(id + ' .pagination a[rel=next]').attr('href');

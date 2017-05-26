@@ -1,6 +1,6 @@
 <div class="spost clearfix">
   <div class="entry-image">
-    <%= image_tag job.images.present? ? job.images.first : "default.jpg" %>
+    <%= load_image_job job %>
   </div>
   <div class="entry-c">
     <div class="entry-title">
