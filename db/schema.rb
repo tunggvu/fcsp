@@ -551,7 +551,8 @@ ActiveRecord::Schema.define(version: 20170608052416) do
     t.integer  "team_id"
     t.datetime "deleted_at"
     t.string   "profile_requests",   default: "[]", null: false
-    t.integer  "candidates_count"
+    t.integer  "candidates_count",   default: 0
+    t.datetime "posting_time"
     t.index ["company_id"], name: "index_jobs_on_company_id", using: :btree
     t.index ["deleted_at"], name: "index_jobs_on_deleted_at", using: :btree
     t.index ["team_id"], name: "index_jobs_on_team_id", using: :btree

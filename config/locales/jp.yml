@@ -67,6 +67,8 @@ jp:
       title: "Help"
   title: "Framgia code school platform"
   copy: "Copyright by Framgia"
+  invalid_datetime: "無効な時間"
+  invalid_time: "これを過去に表示する時間を設定することはできません"
   flash:
     deleted_success: "deleted successfully!"
   education:
@@ -244,3 +246,8 @@ jp:
       subject: "You have a friend request from %{name}"
       hi: "Hi %{name},"
       end: "This email is sent automatically from FCSP, Please do not reply!"
+  time:
+    formats:
+      format_datetime_js: "YYYY/MM/DD HH:mm"
+      format_datetime: "%Y/%m/%d %H:%M"
+      format_date: "%Y/%m/%d"

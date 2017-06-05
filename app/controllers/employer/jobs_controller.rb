@@ -1,7 +1,7 @@
 class Employer::JobsController < Employer::BaseController
-  load_and_authorize_resource
   before_action :load_hiring_types, only: [:new, :create, :edit]
   before_action :update_status, only: :create
+  before_action :load_job, except: [:index, :new, :create]
 
   def index
     if params[:type]
@@ -39,6 +39,7 @@ class Employer::JobsController < Employer::BaseController
 
   def create
     @job = @company.jobs.build job_params
+    @job.posting_time = Time.zone.now unless @job.posting_time
     if @job.save
       flash[:success] = t "employer.jobs.create.created"
       redirect_to @job
@@ -98,5 +99,11 @@ class Employer::JobsController < Employer::BaseController
 
   def update_status
     params[:status] = params[:preview] ? :draft : :open
+  end
+
+  def load_job
+    return if @job = Job.find_by(id: params[:id])
+    flash[:danger] = t ".not_found"
+    redirect_to employer_company_jobs_path @company
   end
 end

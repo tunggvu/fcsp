@@ -1,4 +1,6 @@
 class Article < ApplicationRecord
+  include Concerns::CheckPostTime
+
   has_many :images, as: :imageable, dependent: :destroy
   belongs_to :company
   belongs_to :user
@@ -7,6 +9,7 @@ class Article < ApplicationRecord
   validates :content, presence: true
   validates :description, presence: true
   validates :images, presence: true
+  validate :check_time_show
 
   delegate :name, to: :company, prefix: true
 
@@ -27,5 +30,11 @@ class Article < ApplicationRecord
 
   def background_image
     images.first.picture
+  end
+
+  private
+
+  def check_time_show
+    check_time time_show
   end
 end

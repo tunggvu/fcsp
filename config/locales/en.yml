@@ -169,6 +169,8 @@ en:
       unbookmark: "Unbookmark"
   title: "Framgia code school platform"
   copy: "Copyright by Framgia"
+  invalid_datetime: "Invalid time"
+  invalid_time: "Can't set time to show this in the past"
   flash:
     deleted_success: "deleted successfully!"
   education:
@@ -1075,3 +1077,8 @@ en:
     index:
       synchronize_success: "Synchronize Success"
       synchronize_fail: "Something wrong, please try again later"
+  time:
+    formats:
+      format_datetime_js: "YYYY/MM/DD HH:mm"
+      format_datetime: "%Y/%m/%d %H:%M"
+      format_date: "%Y/%m/%d"

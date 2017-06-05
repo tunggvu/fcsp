@@ -5,6 +5,10 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+source "https://rails-assets.org" do
+  gem "rails-assets-datetimepicker"
+end
+
 gem "rails", "~> 5.0.2"
 gem "puma", "~> 3.0"
 gem "sass-rails", "~> 5.0"

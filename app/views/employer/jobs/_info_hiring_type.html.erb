@@ -68,6 +68,15 @@
 <% end %>
 <div class="form-group">
   <label class="control-label col-md-3 col-sm-3 col-xs-12">
+    <%= t ".posting_time" %>
+  </label>
+  <div class="col-md-6 col-sm-6 col-xs-12">
+    <%= f.text_field :posting_time, class: "form-control datetimepicker",
+      value: format_time(@job.posting_time, :format_datetime) %>
+  </div>
+</div>
+<div class="form-group">
+  <label class="control-label col-md-3 col-sm-3 col-xs-12">
     <%= t ".title" %><span class="required">*</span>
   </label>
   <div class="col-md-6 col-sm-6 col-xs-12">
