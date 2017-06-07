@@ -3,14 +3,14 @@
     <div class="col-sm-12">
       <div class="col-md-5">
         <div>
-          <%= render "articles/sort" %>
+          <%= render "articles/sort", company: @company %>
         </div>
       </div>
       <div class="col-sm-11 list-article">
-        <%= render "articles" %>
+        <%= render "articles", articles: @articles, total: @total, company: @company %>
       </div>
       <div class="col-sm-11 pagination-article">
-        <%= render "articles/paginate" %>
+        <%= render "articles/paginate", articles: @articles %>
       </div>
       <div class="new-article">
         <%= link_to new_employer_company_article_path(@company),

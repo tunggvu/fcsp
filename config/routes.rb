@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   mount Ckeditor::Engine => "/ckeditor"
   devise_for :users, controllers: {omniauth_callbacks: :omniauth_callbacks}
   root "pages#index"
-  resources :companies, only: :show
+  resources :companies, only: :show do
+    resources :articles, only: :show
+  end
+
   namespace :education do
     namespace :management do
       resources :groups, only: :index

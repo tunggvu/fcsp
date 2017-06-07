@@ -29,40 +29,12 @@
         </div>
       </div>
       <div class="hide-tab clearfix" id="tab-news">
-        <div class="row topmargin-sm clearfix">
-          <div class="col-xs-12 bottommargin-sm">
-            <div class="ipost clearfix">
-              <div class="row clearfix">
-                <div class="col-sm-4">
-                  <div class="entry-image">
-                    <a href="#" data-lightbox="image">
-                      <%= load_companies_cover company %>
-                    </a>
-                  </div>
-                </div>
-                <div class="col-sm-8">
-                  <div class="entry-title">
-                    <h3>
-                      <a href="blog-single.html">
-                        <%= FFaker::Lorem.sentence %>
-                      </a>
-                    </h3>
-                  </div>
-                  <ul class="entry-meta clearfix">
-                    <li><i class="icon-calendar3"></i> 10th Feb 2014</li>
-                    <li>
-                      <a href="blog-single.html#comments">
-                      <i class="icon-comments"></i> 13</a>
-                    </li>
-                    <li><a href="#"><i class="icon-camera-retro"></i></a></li>
-                  </ul>
-                  <div class="entry-content">
-                    <p><%= FFaker::Lorem.sentence %></p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <input type="hidden" id="company-id" value="<%= @company.id %>">
+        <div class="show-article">
+          <%= render "articles", articles: @company_articles, company: @company %>
+        </div>
+        <div class="pagination-article">
+          <%= render "article_paginate", articles: @company_articles %>
         </div>
       </div>
       <div class="hide-tab clearfix" id="tab-jobs">

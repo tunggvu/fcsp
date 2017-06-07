@@ -20,6 +20,6 @@ class Article < ApplicationRecord
 
   # only use with user's view
   scope :show, ->(time_show) do
-    where "#{time_show} <= ?", Time.now
+    where("#{time_show} <= ?", Time.now).order "#{time_show} DESC"
   end
 end
