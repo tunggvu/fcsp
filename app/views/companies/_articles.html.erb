@@ -5,13 +5,12 @@
         <div class="row clearfix">
           <div class="col-sm-4">
             <div class="entry-image">
-              <%= link_to image_tag(article.images.first.picture), company_article_path(company, article) %>
+              <%= link_to image_tag(article.images.first.picture), article_path(article) %>
             </div>
           </div>
           <div class="col-sm-8">
             <div class="entry-title">
-              <h4><%= link_to article.title.html_safe,
-                company_article_path(company, article) %>
+              <h4><%= link_to article.title.html_safe, article_path(article) %>
               </h4>
             </div>
             <ul class="entry-meta clearfix">
