@@ -3,21 +3,12 @@ class Employer::TeamsController < Employer::BaseController
   before_action :load_team, except: [:index, :new, :create]
 
   def index
-    if params[:type]
-      listarr = params[:array_id]
-      listarr = listarr.split(",").map(&:to_i) if listarr.class == String
-      sort_by = params[:sort].nil? ? "ASC" : params[:sort]
-      @teams = @company.teams.includes(:images)
-        .filter(listarr, sort_by, params[:type])
-        .page(params[:page]).per Settings.employer.team.per_page
-    else
-      @teams = @company.teams.includes(:images).page(params[:page])
-        .per Settings.employer.team.per_page
-    end
-
+    @team_paginate = Supports::TeamJob.new @company, params
+    @teams = @team_paginate.paginate
     if request.xhr?
       render json: {
-        html_job: render_to_string(partial: "team", teams: @teams,
+        html_job: render_to_string(partial:
+          params[:paginate_team] ? "paginate_team_for_job" : @teams,
           layout: false),
         pagination_job: render_to_string(partial: "paginate", layout: false)
       }

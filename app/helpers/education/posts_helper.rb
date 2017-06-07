@@ -5,10 +5,10 @@ module Education::PostsHelper
   include ActsAsTaggableOn::TagsHelper
 
   class CodeRayify < Redcarpet::Render::HTML
-    # def block_code code, language
-    #   language ||= "ruby"
-    #   CodeRay.scan(code, language).div
-    # end
+    def block_code code, language
+      language ||= "ruby"
+      CodeRay.scan(code, language).div
+    end
   end
 
   def markdown_render content

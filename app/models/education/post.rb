@@ -37,6 +37,13 @@ class Education::Post < ApplicationRecord
     where user_id: user_id if user_id.present?
   end
 
+  def next
+    Education::Post.where("id > ?",id).order(id: :asc).limit(1).first
+  end
+
+  def previous
+    Education::Post.where("id < ?", id).order(id: :desc).limit(1).first
+  end
   # scope :by_title, ->title do
   #   with_translations(I18n.locale)
   #     .where("LOWER(title) LIKE :title", title: "%#{title.downcase}%")

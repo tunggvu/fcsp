@@ -1,4 +1,7 @@
-$(document).ready(function () {
+$(document).ready(function(){
+  $('.add-team').on('click', function(){
+    $('.form-job-team').submit();
+  });
   $('.new .form_ajax form').on('submit', function(e){
     e.preventDefault();
     var form = $('form')[0];
@@ -51,3 +54,9 @@ $(document).ready(function () {
     $(':submit').removeAttr('disabled');
   });
 });
+
+function add_fields(link, association, content) {  
+  var new_id = new Date().getTime();  
+  var regexp = new RegExp('new_' + association, 'g');  
+  $(link).parent().before(content.replace(regexp, new_id));  
+}

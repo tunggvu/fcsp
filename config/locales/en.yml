@@ -338,6 +338,8 @@ en:
         name: "Name"
         email: "Email"
         post_not_found: "Post is not found."
+        next_post: "Next Post"
+        previous_post: "Previous Post"
       create:
         post_create_success: "Post is successfully created"
       update:

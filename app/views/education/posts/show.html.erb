@@ -68,12 +68,10 @@
           </div>
           <div class="post-navigation clearfix">
             <div class="col_half nobottommargin">
-              <a href="#">
-                &lArr; This is a Standard post with a Slider Gallery
-              </a>
+              <%= link_to t(".previous_post"), education_post_path(@post.previous) if @post.previous %>
             </div>
             <div class="col_half col_last tright nobottommargin">
-              <a href="#">This is an Embedded Audio Post &rArr;</a>
+              <%= link_to t(".next_post"), education_post_path(@post.next) if @post.next %>
             </div>
           </div>
           <div class="line"></div>
@@ -87,8 +85,6 @@
       </div>
       <div class="sidebar nobottommargin col_last clearfix">
         <div class="sidebar-widgets-wrap">
-          <%= render "twitter_feed" %>
-          <%= render "flickr_photo" %>
           <div class="widget clearfix">
             <div class="tabs nobottommargin clearfix" id="sidebar-tabs">
               <ul class="tab-nav clearfix tab-nav-post">
@@ -101,7 +97,6 @@
               </div>
             </div>
           </div>
-          <%= render "portfolio_coursel" %>
           <%= render "tag_cloud", post_object: @post_object %>
         </div>
       </div>

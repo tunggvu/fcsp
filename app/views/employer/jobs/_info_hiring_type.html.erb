@@ -1,97 +1,98 @@
-<%= form_for(job, url: url, html: {class: "form-horizontal form-label-left"}) do |f| %>
+<div class="form-group">
+  <label class="control-label col-md-3 col-sm-3 col-xs-12"><%= t ".looking_for" %> 
+    <span class="required">*</span>
+  </label>
+  <div class="col-md-6 col-sm-6 col-xs-12">
+    <%= f.select :type_of_candidates, Job::TYPEOFCANDIDATES,
+      {selected: @job.type_of_candidates}, class: "form-control" %>
+  </div>
+</div>
+<div class="form-group">
+  <label class="control-label col-md-3 col-sm-3 col-xs-12"><%= t ".hiring_type" %>
+    <span class="required">*</span>
+  </label>
+  <div class="col-md-6 col-sm-6 col-xs-12">
+    <ul class="collection-wrapper">
+      <%= f.collection_check_boxes :hiring_type_ids, @hiring_types,
+        :id, :name do |hiring_type| %>
+        <li>
+          <%= hiring_type.check_box %>
+          <%= hiring_type.text %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+<div class="form-group">
+  <label class="control-label col-md-3 col-sm-3 col-xs-12"><%= t ".who_can_apply" %>
+    <span class="required">*</span>
+  </label>
+  <div class="col-md-6 col-sm-6 col-xs-12">
+    <ul class="collection-wrapper">
+      <li>
+        <%= f.radio_button :who_can_apply, :everyone, checked: true %>
+        <%= t ".everyone" %>
+      </li>
+      <li>
+        <%= f.radio_button :who_can_apply, :friends_of_members %>
+        <%= t ".friends_om" %>
+      </li>
+      <li>
+        <%= f.radio_button :who_can_apply, :friends_of_friends_of_member %>
+        <%= t ".of_friends_om" %>
+      </li>
+    </ul>
+  </div>
+</div>
+<%= f.fields_for :images do |ff| %>
   <div class="form-group">
-    <label class="control-label col-md-3 col-sm-3 col-xs-12"> <%= t ".looking_for" %>  <span class="required">*</span>
+    <label class="control-label col-md-3 col-sm-3 col-xs-12"><%= t ".image" %>
+      <span class="required">*</span>
     </label>
     <div class="col-md-6 col-sm-6 col-xs-12">
-      <%= f.select :type_of_candidates, Job::TYPEOFCANDIDATES,
-        {selected: job.type_of_candidates}, class: "form-control" %>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label class="control-label col-md-3 col-sm-3 col-xs-12">  <%= t ".hiring_type" %>  <span class="required">*</span>
-    </label>
-    <div class="col-md-6 col-sm-6 col-xs-12">
-      <ul class="collection-wrapper">
-        <%= f.collection_check_boxes :hiring_type_ids, hiring_types,
-          :id, :name do |hiring_type| %>
-            <li>
-              <%= hiring_type.check_box %>
-              <%= hiring_type.text %>
-            </li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label class="control-label col-md-3 col-sm-3 col-xs-12">  <%= t ".who_can_apply" %> <span class="required">*</span>
-    </label>
-    <div class="col-md-6 col-sm-6 col-xs-12">
-      <ul class="collection-wrapper">
-        <li>
-          <%= f.radio_button :who_can_apply, :everyone, checked: true %>
-          <%= t ".everyone" %>
-        </li>
-        <li>
-          <%= f.radio_button :who_can_apply, :friends_of_members %>
-          <%= t ".friends_om" %>
-        </li>
-        <li>
-          <%= f.radio_button :who_can_apply, :friends_of_friends_of_member %>
-          <%= t ".of_friends_om" %>
-        </li>
-      </ul>
-    </div>
-  </div>
-
-  <%= f.fields_for :images, html: {multipart: true} do |ff| %>
-    <div class="form-group">
-      <label class="control-label col-md-3 col-sm-3 col-xs-12">  <%= t ".image" %> <span class="required">*</span>
-      </label>
-      <div class="col-md-6 col-sm-6 col-xs-12">
-        <div class="custab job-image">
-            <%= ff.file_field :picture, id: "load-file" %>
-        </div>
+      <div class="custab job-image">
+        <%= ff.file_field :picture, id: "load-file" %>
       </div>
     </div>
-    <div class="form-group">
-      <label class="control-label col-md-3 col-sm-3 col-xs-12">  <%= t ".caption" %> <span class="required">*</span>
-      </label>
-      <div class="col-md-6 col-sm-6 col-xs-12">
-        <div class="custab job-image">
-            <%= ff.text_field :caption, class: "form-control" %>
-        </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-md-3 col-sm-3 col-xs-12">
+      <%= t ".caption" %><span class="required">*</span>
+    </label>
+    <div class="col-md-6 col-sm-6 col-xs-12">
+      <div class="custab job-image">
+        <%= ff.text_field :caption, class: "form-control caption-image" %>
       </div>
-    </div>
-  <% end %>
-
-  <div class="form-group">
-    <label class="control-label col-md-3 col-sm-3 col-xs-12">   <%= t ".title" %> <span class="required">*</span>
-    </label>
-    <div class="col-md-6 col-sm-6 col-xs-12">
-      <%= f.text_field :title, required: true, class: "form-control",
-        placeholder: t(".placeholder_title") %>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label class="control-label col-md-3 col-sm-3 col-xs-12">  <%= t ".description" %> <span class="required">*</span>
-    </label>
-    <div class="col-md-6 col-sm-6 col-xs-12">
-      <%= f.text_area :describe, required: true, class: "form-control",
-        rows: 5, placeholder: t(".placeholder_des") %>
-    </div>
-  </div>
-
-  <div class="form-group">
-    <div class="col-md-3">
-      <a href="#" class="buttonPrevious buttonDisabled btn btn-primary text-right">
-        <%= t ".previous" %>
-      </a>
-    </div>
-    <div class="col-md-3 col-md-offset-6">
-      <%= submit_tag t(".save_continue"), class: "buttonNext btn btn-success text-right" %>
     </div>
   </div>
 <% end %>
+<div class="form-group">
+  <label class="control-label col-md-3 col-sm-3 col-xs-12">
+    <%= t ".title" %><span class="required">*</span>
+  </label>
+  <div class="col-md-6 col-sm-6 col-xs-12">
+    <%= f.text_field :title, required: true, class: "form-control title-job",
+      placeholder: t(".placeholder_title") %>
+  </div>
+</div>
+<div class="form-group">
+  <label class="control-label col-md-3 col-sm-3 col-xs-12"><%= t ".description" %>
+    <span class="required">*</span>
+  </label>
+  <div class="col-md-6 col-sm-6 col-xs-12">
+    <%= f.text_area :describe, required: true, class: "form-control text-job",
+      rows: 5, placeholder: t(".placeholder_des") %>
+  </div>
+</div>
+<div class="form-group">
+  <div class="col-md-3">
+    <a href="#" class="buttonPrevious buttonDisabled btn btn-primary text-right">
+      <%= t ".previous" %>
+    </a>
+  </div>
+  <div class="col-md-3 col-md-offset-6">
+    <a href="#" class = "next-step-2 btn btn-success text-right">
+      <%= t "employer.jobs.new.next_step" %>
+    </a>
+  </div>
+</div>

@@ -157,7 +157,7 @@ var draftjob = {
   }
 };
 
-$('.pagination-job').on('click','.pagination .page-item a',function(e){
+$('body').on('click', '.pagination-job .pagination .page-item a', function(e){
   e.preventDefault();
   var url_request = $(this).attr('href'),
     tbody = $('.jobs-list');

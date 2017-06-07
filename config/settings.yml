@@ -180,6 +180,7 @@ employer:
   jobs:
     per_page: 6
     thumb_image_size: "100x50"
+    page: 1
   team:
     per_page: 6
   candidates:

@@ -375,6 +375,8 @@ vi:
         name: "Tên"
         email: "Email"
         post_not_found: "Không tìm thấy post"
+        next_post: "Bài tiếp theo"
+        previous_post: "Bài trước"
       create:
         post_create_success: "Tạo mới thành công"
       update:

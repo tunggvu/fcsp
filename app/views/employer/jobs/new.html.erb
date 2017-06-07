@@ -26,29 +26,33 @@
         </a>
       </li>
     </ul>
-    <div id="step-1">
-      <h2 class="StepTitle"><%= t ".job" %></h2>
-      <div class="form_ajax">
-        <%= render "info_hiring_type", url: employer_company_jobs_path,
-          job: @job, hiring_types: @hiring_types %>
+    <%= form_for @job, url: employer_company_jobs_path,
+      html: {class: "form-horizontal form-label-left"} do |f| %>
+      <div id="step-1">
+        <h2 class="StepTitle"><%= t ".job" %></h2>
+        <div class="form_ajax">
+          <%= render "info_hiring_type", f: f %>
+        </div>
       </div>
-    </div>
-    <div id="step-2">
-      <h2 class="StepTitle"><%= t ".members" %></h2>
-      <div class="step-2-content"></div>
-      <div class="container">
-        <div class="col-md-3">
-          <a href="#" class="buttonPrevious buttonDisabled btn btn-primary text-right">
-            <%= t ".previous" %>
-          </a>
+      <div id="step-2">
+        <h2 class="StepTitle"><%= t ".members" %></h2>
+        <div class="step-2-content clearfix">
+          <%= render "new_job", f: f %>
         </div>
-        <div class="col-md-3 col-md-offset-6">
-          <%= submit_tag t(".save_continue"), class: "buttonNext btn btn-success text-right" %>
+        <div class="container">
+          <div class="col-md-3">
+            <a href="#" class="buttonPrevious buttonDisabled btn btn-primary text-right">
+              <%= t ".previous" %>
+            </a>
+          </div>
+          <div class="col-md-3 col-md-offset-6">
+            <%= f.submit t(".save_continue"), class: "add-team btn btn-success text-right" %>
+          </div>
         </div>
-        </div>
-    </div>
-    <div id="step-3">
-      <h2 class="StepTitle"><%= t ".create_team_story" %></h2>
-    </div>
+      </div>
+      <div id="step-3">
+        <h2 class="StepTitle"><%= t ".create_team_story" %></h2>
+      </div>
+    <% end %>
   </div>
 </div>

@@ -2,7 +2,8 @@ class Team < ApplicationRecord
   belongs_to :company
   has_many :images, as: :imageable, dependent: :destroy
   has_many :team_introductions, as: :team_target
-
+  has_many :job_teams, dependent: :destroy
+  has_many :jobs, through: :job_teams
   validates :name, presence: true
 
   accepts_nested_attributes_for :images, allow_destroy: true

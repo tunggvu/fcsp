@@ -77,6 +77,12 @@ en:
       to: "to"
       changed: "Changed!"
       process_has_been: "Process has been changed successfully."
+    job_team:
+      success: "Success"
+      danger: "Fails"
+    teams:
+      add_introduct: "Add a Introduction"
+      search: "Search"  
     jobs:
       candidate_by_job:
         user: "User"
@@ -86,6 +92,8 @@ en:
         interested_in: "Interested in"
         have: " have "
         candidates: " candidates"
+        team: "Team"
+        team_name: "Name"
       show_candidates:
         all_candidates: "All candidates"
         close: Close
@@ -102,6 +110,8 @@ en:
           I will buy you a drink!"
       new:
         success: "Create success"
+        step_1_sussess: "Step 1 finished"
+        step_1_danger: "Danger"
         job_recruitment: "Post job recruitment"
         job: "Create job"
         members: "Add members"
@@ -112,6 +122,7 @@ en:
         step_2: "Step 2"
         step_3: "Step 3"
         create_team_story: "Create team story"
+        next_step: "Next Step"
         save_continue: "Save and Continue"
         previous: "Previous"
       create:

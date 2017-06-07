@@ -20,19 +20,20 @@
                 <div>
                   <ul class="nav nav-tabs" role="tablist">
                     <% @team.team_introductions.each_with_index do |value, key| %>
-                        <li role="presentation" class="<%= key = 0 ? "active" : "" %>">
-                          <a href="#<%= key %>"
-                            aria-controls="<%= key %>" role="tab" data-toggle="tab">
-                            <%= value.title %>
-                          </a></li>
+                      <li role="presentation" class="<%= key == 0 ? "active" : "" %>">
+                        <a href="#<%= key %>"
+                          aria-controls="<%= key %>" role="tab" data-toggle="tab">
+                          <%= value.title %>
+                        </a>
+                      </li>
                     <% end %>
                   </ul>
                   <div class="tab-content">
                     <% @team.team_introductions.each_with_index do |value, key| %>
-                        <div role="tabpanel" class="tab-pane <%= key = 0 ? "active" : "" %>"
-                          id="<%= key %>">
-                          <%= value.content %>
-                        </div>
+                      <div role="tabpanel" class="tab-pane <%= key == 0 ? "active" : "" %>" 
+                        id="<%= key %>">
+                        <%= value.content %>
+                      </div>
                     <% end %>
                   </div>
                 </div>
