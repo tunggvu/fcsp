@@ -17,7 +17,7 @@
         <% end %>
       </div>
       <div class="job-title-content">
-        <%= link_to job.title, edit_employer_company_job_path(@company.id, job.id), class: "job-title" %>
+        <%= link_to job.title, edit_employer_company_job_path(company.id, job.id), class: "job-title" %>
         <div class="hidden-xs">
           <span class="icon-job-type sales">
             <%= Job.human_enum_name :type_of_candidates, job.type_of_candidates %>
@@ -25,7 +25,7 @@
         </div>
         <div>
           <%= link_to t(".show_posting"), job_path(job) %> |
-          <%= link_to t(".edit_posting"), edit_employer_company_job_path(@company.id, job.id) %>
+          <%= link_to t(".edit_posting"), edit_employer_company_job_path(company.id, job.id) %>
         </div>
       </div>
     </td>
@@ -54,7 +54,7 @@
           btn-xs" %>
       </div>
     </td>
-    <input type="hidden" id="company-id" value="<%= @company.id %>">
+    <input type="hidden" id="company-id" value="<%= company.id %>">
     <input type="hidden" id="status-job_<%= job.id %>"
       value="<%= Job.statuses[job.status] %>">
   </tr>

@@ -15,12 +15,12 @@
             placeholder= "<%= t ".placeholder_search" %>" group="<%= group.id %>">
         </div>
         <div class="added_users">
-          <%= render partial: "users", locals: {users: group.users, group: group} %>
+          <%= render "users", users: group.users, group: group %>
         </div>
       </div>
     <% end %>
   </div>
 </div>
 <% groups.each do |group| %>
-  <%= render partial: "add_user_modal", locals: {group: group} %>
+  <%= render "add_user_modal", group: group %>
 <% end %>

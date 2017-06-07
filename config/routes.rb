@@ -79,7 +79,7 @@ Rails.application.routes.draw do
   resources :user_works, except: :show
   resources :user_educations, except: :show
   resources :user_links, except: [:show, :index]
-  resources :user_posts do
+  resources :user_posts, except: :index do
     resources :comments, except: [:show, :new, :index]
     resources :likes, only: [:create, :destroy]
   end

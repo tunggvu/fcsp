@@ -15,8 +15,8 @@ $(document).ready(function(){
   });
 
   $('.user-image-img').on('click', function(){
-    image_id = this.dataset.id;
-    image_src = $('#user-image-' + image_id).attr('src');
+    var image_id = this.dataset.id;
+    var image_src = $('#user-image-' + image_id).attr('src');
     $('.img-upload').attr('src', image_src);
     $('.user-old-image').val(image_id);
     $('.change-image').val('');
@@ -52,23 +52,23 @@ $(document).ready(function(){
     $(target).show();
   });
 
-  js_hover('.education-info', '.edit-education')
-  js_hover('.certificate-info', '.edit-certificate')
-  js_hover('.link-info', '.edit-link')
-  js_hover('.award-hover', '.hover-button-award')
+  js_hover('.education-info', '.edit-education');
+  js_hover('.certificate-info', '.edit-certificate');
+  js_hover('.link-info', '.edit-link');
+  js_hover('.award-hover', '.hover-button-award');
   js_hover('.link-info', '.edit-link');
 
   $(document).ajaxComplete(function(){
-    js_hover('.education-info', '.edit-education')
-    js_hover('.certificate-info', '.edit-certificate')
-    js_hover('.link-info', '.edit-link')
-    js_hover('.award-hover', '.hover-button-award')
+    js_hover('.education-info', '.edit-education');
+    js_hover('.certificate-info', '.edit-certificate');
     js_hover('.link-info', '.edit-link');
-  })
+    js_hover('.award-hover', '.hover-button-award');
+    js_hover('.link-info', '.edit-link');
+  });
 
   $('form#edit-about-me-form,' + 'form#edit-ambition-form,' +
     'form#edit-introduction-form,' + 'form#edit-quote-form'
-  ).bind('ajax:success', function(event, xhr, settings) {
+  ).bind('ajax:success', function(event, xhr) {
     if(xhr['errors']) {
       $('.form-group').removeClass('has-error');
       $('span').remove('.help-block');
@@ -86,7 +86,7 @@ $(document).ready(function(){
       $('.form-group').removeClass('has-error');
       $('span').remove('.help-block');
     }
-  })
+  });
 });
 
 function read_url(input) {
@@ -94,7 +94,7 @@ function read_url(input) {
     var reader = new FileReader();
     reader.onload = function (e) {
       $('.img-upload').attr('src', e.target.result);
-    }
+    };
     reader.readAsDataURL(input.files[0]);
   }
 }
@@ -106,13 +106,4 @@ function js_hover(object_hover, object_hiden_show) {
   }).mouseleave(function() {
     $(this).find(object_hiden_show).hide();
   });
-}
-
-function userLanguageHiddenToggle(is_hidden) {
-  if(is_hidden) {
-    $('.user-language-hidden-toggle').addClass('hidden')
-  }else {
-    $('.user-language-hidden-toggle').removeClass('hidden')
-  }
-  return false
 }

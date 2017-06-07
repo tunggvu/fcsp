@@ -6,7 +6,14 @@
     "jquery": true
   },
   "globals": {
-    "window": true
+    "window": true,
+    "I18n": true,
+    "CKEDITOR": true,
+    "Growl": true,
+    "SimpleMDE": true,
+    "Dropzone": true,
+    "Routes": true,
+    "swal": true
   },
 
   "extends": "eslint:recommended",

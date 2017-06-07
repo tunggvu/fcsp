@@ -21,7 +21,7 @@
               <th><%= t ".phone_number" %></th>
               <th><%= t ".destroy" %></th>
             </tr>
-            <%= render partial: "feedback", collection: @feedbacks %>
+            <%= render "feedback", feedbacks: @feedbacks %>
           </table>
         </div>
       </div>

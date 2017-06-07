@@ -13,19 +13,19 @@ var follow = {
       var self = $(this);
       var company_id = $('#company_id').val();
       $.ajax({
-        url: '/follow_companies/', 
-        data: {company_id: company_id}, 
+        url: '/follow_companies/',
+        data: {company_id: company_id},
         type: 'POST',
         success: function(data) {
           if(data.status === 200) {
             $.growl.notice({message: data.flash});
             self.removeClass('follow-company btn-warning')
               .addClass('unfollow-company btn-danger');
-            self.text(I18n.t("companies.follow_form.unfollow"));
+            self.text(I18n.t('companies.follow_form.unfollow'));
           }
           else {
             $.growl.error({message: data.flash});
-          } 
+          }
         },
         error: function(error) {
           $.growl.error({message: error});
@@ -48,11 +48,11 @@ var follow = {
             $.growl.warning({message: data.flash});
             self.removeClass('unfollow-company btn-danger')
               .addClass('follow-company btn-warning');
-            self.text(I18n.t("companies.follow_form.follow"));
+            self.text(I18n.t('companies.follow_form.follow'));
           }
           else {
             $.growl.error({message: data.flash});
-          } 
+          }
         },
         error: function(error) {
           $.growl.error({message: error});
@@ -61,4 +61,4 @@ var follow = {
       return false;
     });
   }
-}
+};

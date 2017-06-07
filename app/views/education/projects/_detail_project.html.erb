@@ -14,7 +14,7 @@
           <i class="icon-circle"></i>
         </div>
         <%= render "list_members",
-          project: project, project_members: project_members %>
+          project: project, show_projects: show_projects %>
       </div>
       <div class="col_one_third portfolio-single-content col_last portfolio-single-content-custom">
         <div class="fancy-title title-bottom-border">
@@ -105,17 +105,17 @@
       <% if user_signed_in?%>
         <div class="comment-errors"></div>
         <%= render partial: "education/comments/comment_form",
-          locals: {project: @project} %>
+          locals: {project: project} %>
       <% end %>
     </div>
     <h3 id="comments-title" class="comments-title"><span class="comment-count">
-      <%= @project.comments.size %></span><%= t "comment.comment_count" %>
+      <%= project.comments.size %></span><%= t "comment.comment_count" %>
     </h3>
     <div class="all-comment" id="all-comment">
-      <%= render @show_projects.comments %>
+      <%= render show_projects.comments %>
     </div>
     <div class="load-more-button">
-      <%= link_to_next_page @show_projects.comments, t("comment.more_comment"),
+      <%= link_to_next_page show_projects.comments, t("comment.more_comment"),
         remote: true, id: "load-more",
         class: "button button-3d button-teal button-small nobottommargin tada animated" %>
     </div>

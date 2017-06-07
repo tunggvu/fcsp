@@ -2,7 +2,7 @@
   <tr class="search-user-image">
     <td>
       <%= check_box_tag "users[]", user.id, false,
-        user: "#{user.id}", class: "user-add",
+        user: "#{user.id}", class: "user-add check-user",
         onclick: "check_user(this)" %>
       <%= load_user_avatar user %>
       <strong><%= user.name %></strong>

@@ -16,7 +16,7 @@
                   <thead>
                     <tr class="headings">
                       <th class="job-title">
-                        <%= render "filter_name" %>
+                        <%= render "filter_name", teams: @teams %>
                         <%= t ".team_title" %>
                       </th>
                       <th class="job-action">
@@ -25,7 +25,7 @@
                     </tr>
                   </thead>
                   <tbody class="jobs-list">
-                    <%= render "team" %>
+                    <%= render "team", teams: @teams, company: @company %>
                   </tbody>
                 </table>
               </div>
@@ -36,7 +36,7 @@
     </div>
   </div>
   <div class="pagination-job">
-    <%= render "paginate" %>
+    <%= render "paginate", teams: @teams %>
   </div>
   <input type="hidden" id="company-id" value="<%= @company.id %>">
 </div>

@@ -38,7 +38,7 @@ class Employer::JobsController < Employer::BaseController
     @job = @company.jobs.build job_params
     if @job.save
       render json: {
-        html_job: render_to_string(partial: "new_job",
+        html_job: render_to_string(partial: "new_job", locals: {job: @job},
           layout: false)
       }, status: 200
     else

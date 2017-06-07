@@ -1,6 +1,6 @@
 <div id="comments" class="clearfix">
   <% if user_signed_in? %>
-    <%= render "comment_form" %>
+    <%= render "comment_form", post: post %>
   <% else %>
     <div class="load-more-button">
       <%= link_to t(".login_to_comment"), new_user_session_path,
@@ -13,6 +13,6 @@
   </h3>
   <ol class="commentlist clearfix">
     <%= render partial: "education/posts/comment_item",
-      locals: {comments: @post_object.comments} %>
+      locals: {comments: post_object.comments, post: post} %>
   </ol>
 </div>

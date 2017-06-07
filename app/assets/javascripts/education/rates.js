@@ -1,7 +1,7 @@
 //= require js/jquery.raty.js
 
 $(document).ready(function () {
-   $('.rated').raty({
+  $('.rated').raty({
     path: '/assets/education/rate',
     half: true,
     score: $('.rated').attr('score'),
@@ -15,8 +15,8 @@ $(document).ready(function () {
     half: true,
     starOff: 'star-off.png',
     starOn: 'star-on.png',
-    click: function(score, evt) {
-      window.location.href = '../../users/sign_in'
+    click: function() {
+      window.location.href = '../../users/sign_in';
     }
   });
 
@@ -25,10 +25,12 @@ $(document).ready(function () {
     half: true,
     starOff: 'star-off.png',
     starOn: 'star-on.png',
-    click: function(score, evt) {
-      user_id = $('.user-rate').attr('user-id');
-      rateable_id = $('.user-rate').attr('rateable-id');
-      rateable_type = $('.user-rate').attr('rateable-type');
+    click: function(score) {
+      var title = '';
+      var flash = '';
+      var user_id = $('.user-rate').attr('user-id');
+      var rateable_id = $('.user-rate').attr('rateable-id');
+      var rateable_type = $('.user-rate').attr('rateable-type');
       $.ajax({
         method: 'post',
         url: rateable_id + '/rates/',
@@ -41,11 +43,11 @@ $(document).ready(function () {
         },
         success: function(){
           $('.user-rate').raty('readOnly', true),
-          title = I18n.t("education.rates.rate.thanks_title");
-          flash = I18n.t("education.rates.rate.thanks");
+          title = I18n.t('education.rates.rate.thanks_title');
+          flash = I18n.t('education.rates.rate.thanks');
           $.growl.notice({title: title, message: flash});
         }
       });
     }
   });
-})
+});

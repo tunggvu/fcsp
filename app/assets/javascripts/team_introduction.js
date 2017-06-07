@@ -13,7 +13,6 @@ var team_introduction = {
 
   view_image: function(className){
     $(className).on('change', function(){
-      var id = this.id;
       if (typeof (FileReader) != 'undefined') {
         var bar = $(this).next();
         var image_holder = bar;
@@ -28,7 +27,7 @@ var team_introduction = {
         image_holder.show();
         reader.readAsDataURL($(this)[0].files[0]);
       } else {
-        alert(I18n.t("browser_not_support"));
+        alert(I18n.t('browser_not_support'));
       }
     });
   },
@@ -73,33 +72,33 @@ var team_introduction = {
       var tr = '.team_introduction_' + (index+1).toString();
       team_introduction
         .swal_init(I18n.t('employer.team_introductions.create_confirm')).then(function(){
-        $.ajax({
-          dataType: 'json',
-          contentType: false,
-          processData: false,
-          url: $('.new_team_introduction').attr('action'),
-          method: 'post',
-          data: formData,
-          success: function() {
-            swal('Created!', I18n.t('employer.team_introductions.success'), 'success');
-            $(parent_class).slideUp();
-            $(tr).show();
-          },
-          error: function(){
-            swal('Failed!', I18n.t('employer.team_introductions.not_found'), 'error');
-            $('.team_introduction').find('input[type="submit"]').attr('disabled', false);
-          }
-        });
-      }, function (dismiss) {
-        if (dismiss === 'cancel') {
-          swal(
+          $.ajax({
+            dataType: 'json',
+            contentType: false,
+            processData: false,
+            url: $('.new_team_introduction').attr('action'),
+            method: 'post',
+            data: formData,
+            success: function() {
+              swal('Created!', I18n.t('employer.team_introductions.success'), 'success');
+              $(parent_class).slideUp();
+              $(tr).show();
+            },
+            error: function(){
+              swal('Failed!', I18n.t('employer.team_introductions.not_found'), 'error');
+              $('.team_introduction').find('input[type="submit"]').attr('disabled', false);
+            }
+          });
+        }, function (dismiss) {
+          if (dismiss === 'cancel') {
+            swal(
             I18n.t('cancelled'),
             I18n.t('safe')+' :)',
             'error'
           );
-          $('.team_introduction').find('input[type="submit"]').attr('disabled', false);
-        }
-      })
+            $('.team_introduction').find('input[type="submit"]').attr('disabled', false);
+          }
+        });
     });
   }
 };

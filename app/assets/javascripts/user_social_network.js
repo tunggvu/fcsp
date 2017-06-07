@@ -42,7 +42,7 @@ $(document).ready(function(){
           $.growl.error({message: data.flash});
         }
       },
-      error: function(error){
+      error: function(){
         $.growl.error({message: data.flash});
         location.reload();
       }
@@ -93,5 +93,5 @@ $(document).ready(function(){
         '<i class="icon-instagram"></i>' +
         '<i class="icon-instagram"></i>' +
       '</a>';
-  }
+  };
 });

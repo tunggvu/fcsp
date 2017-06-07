@@ -1,4 +1,4 @@
-<% @teams.each do |team| %>
+<% teams.each do |team| %>
   <tr id="job_1">
     <td>
       <div class="job-thumb-image">
@@ -8,15 +8,15 @@
         <%= link_to team.name, nil, class: "job-title" %>
         <div>
           <%= link_to t(".show_team"),
-            employer_company_team_path(company_id: @company.id, id: team.id) %>|
+            employer_company_team_path(company_id: company.id, id: team.id) %>|
           <%= link_to t(".edit_team"),
-            edit_employer_company_team_path(company_id: @company.id, id: team.id) %>
+            edit_employer_company_team_path(company_id: company.id, id: team.id) %>
         </div>
       </div>
     </td>
     <td class="status">
       <b>
-        <%= link_to  employer_company_team_path(company_id: @company.id,
+        <%= link_to  employer_company_team_path(company_id: company.id,
           id: team.id), method: :delete, data: {confirm: t(".confirm")}  do %>
           <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
         <% end %>

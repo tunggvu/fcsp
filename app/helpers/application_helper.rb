@@ -39,7 +39,7 @@ module ApplicationHelper
   end
 
   def request_friends
-    if !current_user.nil? && user_signed_in?
+    if current_user && user_signed_in?
       current_user.requested_friends.includes :avatar
     end
   end

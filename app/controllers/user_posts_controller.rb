@@ -25,6 +25,9 @@ class UserPostsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
   def update
     if @post.update_attributes post_params
       flash[:success] = t ".success"

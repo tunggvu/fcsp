@@ -10,17 +10,17 @@ $(document).ready(function() {
     e.preventDefault();
   });
 
-  $('.permissions-search').on('keyup', function(e) {
+  $('.permissions-search').on('keyup', function() {
     search_permission();
   });
 
   var data = {};
   $('.edu-permission-info').on('change', function(e) {
     var id = this.dataset.id;
-    create = $('#create-' + id).is(":checked");
-    read = $('#read-' + id).is(":checked");
-    update = $('#update-' + id).is(":checked");
-    destroy = $('#destroy-' + id).is(":checked");
+    var create = $('#create-' + id).is(':checked');
+    var read = $('#read-' + id).is(':checked');
+    var update = $('#update-' + id).is(':checked');
+    var destroy = $('#destroy-' + id).is(':checked');
     data[id] = {create: create, read: read, update: update, destroy: destroy};
     e.preventDefault();
   });
@@ -49,11 +49,11 @@ $(document).ready(function() {
 });
 
 function search_permission() {
-  table = $('.edu-group-tab.active').find('table.permission');
-  filter = $('.edu-group-tab.active').find('.permissions-search').val().toUpperCase();
-  tr = $(table).find('tr');
-  for (i = 0; i < tr.length; i++) {
-    td = $(tr[i]).find('td')[0];
+  var table = $('.edu-group-tab.active').find('table.permission');
+  var filter = $('.edu-group-tab.active').find('.permissions-search').val().toUpperCase();
+  var tr = $(table).find('tr');
+  for (var i = 0; i < tr.length; i++) {
+    var td = $(tr[i]).find('td')[0];
     if (td) {
       if ($(td).html().toUpperCase().indexOf(filter) > -1) {
         $(tr[i]).css('display', '');

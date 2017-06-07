@@ -1,1 +1,1 @@
-$('#comment-edit-<%= @comment.id %>').replaceWith('<%= j render "education/posts/edit_comment_form", comment: @comment %>');
+$('#comment-edit-<%= @comment.id %>').replaceWith('<%= j render "education/posts/edit_comment_form", comment: @comment, post: @post %>');

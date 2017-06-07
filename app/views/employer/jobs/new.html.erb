@@ -29,7 +29,8 @@
     <div id="step-1">
       <h2 class="StepTitle"><%= t ".job" %></h2>
       <div class="form_ajax">
-        <%= render "info_hiring_type", url: employer_company_jobs_path %>
+        <%= render "info_hiring_type", url: employer_company_jobs_path,
+          job: @job, hiring_types: @hiring_types %>
       </div>
     </div>
     <div id="step-2">

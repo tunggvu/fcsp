@@ -25,7 +25,7 @@ $(document).ready(function(){
         {
           name: 'image',
           action: function(){
-            $('#image_insert_dialog').modal('show')
+            $('#image_insert_dialog').modal('show');
           },
           className: 'fa fa-image',
           title: 'Insert image'
@@ -57,7 +57,7 @@ $(document).ready(function(){
   $(document).on('click', '.mb-1', {}, function(e){
     $('#image_insert_dialog').modal('hide');
     var trigger = $('#image_insert_dialog').attr('trigger');
-    var image = e.target
+    var image = e.target;
     var src = $(image).attr('src');
     if(trigger === '#choose-cover-btn'){
       $('#education_post_cover_photo').val(src);
@@ -96,7 +96,7 @@ $(document).ready(function(){
     var tag_array = JSON.parse(post_tags);
     tag_array.map(function(tag){
       $('#education_post_tag_list').tagit('createTag', tag);
-    })
+    });
   }
 });
 
@@ -104,4 +104,4 @@ var appendContent = function(imageUrl){
   $('.mt-1').prepend('<div class=\"col-md-2 col-xs-3 mb-1\">'+
     '<a href=\"javascript:;\" class=\"thumbnail\" style=\"display: inline-block;\">'+
     '<img src=\"'+imageUrl+'" class=\"w-100\"></a></div>');
-}
+};

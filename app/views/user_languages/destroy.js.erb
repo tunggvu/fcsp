@@ -4,4 +4,8 @@ $('.user-language').html('<%= j render "user_languages/user_language", user: cur
 <% else %>
   $.growl.error({message: '<%= @render.message %>'});
 <% end %>
-userLanguageHiddenToggle(<%= current_user.user_languages.empty? %>)
+<% if current_user.user_languages.empty? %>
+  $('.user-language-hidden-toggle').addClass('hidden');
+<% else %>
+  $('.user-language-hidden-toggle').removeClass('hidden');
+<% end %>

@@ -1,12 +1,12 @@
 $(document).ready(function() {
   $('.album-image').hide();
   $('.album-for-user').click(function() {
-  $('.album-image').show();
+    $('.album-image').show();
   });
 
   $('.user-image-img').on('click', function() {
-    img_id = this.dataset.id;
-    img_src = $('#user-image-' + img_id).attr('src');
+    var img_id = this.dataset.id;
+    var img_src = $('#user-image-' + img_id).attr('src');
     $('.img-upload').attr('src', img_src);
     $('.change-image').val('');
     $('.user-old-image').val(img_id);
@@ -41,7 +41,7 @@ function read_url(input) {
     var reader = new FileReader();
     reader.onload = function(e) {
       $('.img-upload').attr('src', e.target.result);
-    }
+    };
     reader.readAsDataURL(input.files[0]);
   }
 }

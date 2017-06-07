@@ -42,7 +42,7 @@
     <div class="container clearfix">
       <%= render "detail_project", project: @project,
         relations: @show_projects.relations, techniques: @techniques,
-        project_members: @show_projects.project_members,
+        show_projects: @show_projects,
         rate: (@show_projects.get_rate(current_user.id) if user_signed_in?) %>
     </div>
   </div>

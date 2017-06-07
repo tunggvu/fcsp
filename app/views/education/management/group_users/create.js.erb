@@ -1,5 +1,5 @@
 <% if flash[:success].present? %>
-  $('#edu-group-tab-<%= @group_object.id %>').html('<%= j render partial: "users", locals: {users: @group_object.users, group: @group_object} %>');
+  $('#edu-group-tab-<%= @group_object.id %>').html('<%= j render "users", users: @group_object.users, group: @group_object %>');
   $.growl.notice({message: '<%= flash[:success] %>'});
   $('.modal[group=<%= @group_object.id %>]').modal('hide');
 <% else %>

@@ -40,15 +40,15 @@ $(document).ready(function(){
       });
     }
     if(e.which === 27) {
-      var category_name = this.dataset.name;
-      var category_id = this.dataset.id;
+      category_name = this.dataset.name;
+      category_id = this.dataset.id;
       $('#edu-category-name-' + category_id).html(category_name);
     }
   });
 
   $('#list_education_categories').on('click', '.delete-edu-category', function(){
     var category_id = this.dataset.id;
-    if(confirm(I18n.t("education.javascripts.detete_category"))){
+    if(confirm(I18n.t('education.javascripts.detete_category'))){
       $.ajax({
         type: 'delete',
         url: '/education/management/categories/' + category_id,
@@ -63,7 +63,6 @@ $(document).ready(function(){
           }
         },
         error: function(error) {
-          console.log(error);
           $.growl.error({title: '', message: error});
           // location.reload();
         }

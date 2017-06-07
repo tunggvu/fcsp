@@ -1,10 +1,10 @@
 $(document).ready(function(){
   var idItems = [];
 
-  $('.search_users').on('keyup', '#user_search', 
+  $('.search_users').on('keyup', '#user_search',
     function() {
       var user_search = $('#user_search').val();
-      var user_ids = idItems
+      var user_ids = idItems;
       var data = {user_search: user_search, user_ids: user_ids};
 
       $.get('/education/courses/' + $('#course_id').val(), data, null, 'script');
@@ -12,7 +12,7 @@ $(document).ready(function(){
     }
   );
 
-  $('.search_added_users').on('keyup', '#search_added_users', 
+  $('.search_added_users').on('keyup', '#search_added_users',
     function() {
       $.get('/education/courses/' + $('#course_id').val(),
       $('#search_added_users').serialize(), null, 'script');
@@ -25,17 +25,18 @@ $(document).ready(function(){
       type: 'POST',
       url: '/education/course_members',
       data: {users: idItems, course_id: $('#course_id').val()},
-      success: function(data) {
+      success: function() {
         idItems = [];
       },
       error: function(error) {
         $.growl.error({message: error});
         location.reload();
       }
-    })
+    });
   });
- 
-  check_user_course = function(obj) { 
+
+  var check_user_course;
+  check_user_course = function(obj) {
     if($(obj).is(':checked')){
       idItems.push(parseInt($(obj).val()));
     }
@@ -45,11 +46,16 @@ $(document).ready(function(){
     }
   };
 
+  $(document).on('click', '.check-user-course', function() {
+    check_user_course(this);
+  });
+
+
   $('.check_all').click( function() {
-    $('input[name="users[]"]').prop('checked', this.checked)
-  })
+    $('input[name="users[]"]').prop('checked', this.checked);
+  });
 
   $('.add_course_member_modal #object-member-modal').on('hidden.bs.modal', function () {
-    window.location.replace("/education/courses/" + $('#course_id').val());
-  })
+    window.location.replace('/education/courses/' + $('#course_id').val());
+  });
 });

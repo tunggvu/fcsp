@@ -42,6 +42,7 @@ class Job < ApplicationRecord
   validates :profile_requests, presence: true
 
   scope :newest, ->{order created_at: :desc}
+  # scope :all_job, ->{}
   scope :of_ids, ->ids do
     where id: ids if ids.present?
   end

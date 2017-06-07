@@ -8,7 +8,8 @@
           <i class="icon-edit"></i>
         <% end %>
         <%= link_to user_language_path(user_language), method: :delete,
-          remote: true, data: {confirm: t(".sure")}, class: "left-icon" do %>
+          remote: true, data: {confirm: t(".sure")},
+          class: "left-icon" do %>
           <i class="icon-trash"></i>
         <% end %>
       <% end %>

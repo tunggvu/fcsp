@@ -56,7 +56,7 @@ $(document).ready(function() {
   });
   $('a.add_fields').data('association-insertion-method', 'append');
 
-  $('form.portfolio-form').bind('ajax:success', function(event, xhr, settings) {
+  $('form.portfolio-form').bind('ajax:success', function(event, xhr) {
     if(xhr['errors']) {
       $('.form-group').removeClass('has-error');
       $('span').remove('.help-block');
@@ -74,5 +74,5 @@ $(document).ready(function() {
       $('.form-group').removeClass('has-error');
       $('span').remove('.help-block');
     }
-  })
+  });
 });

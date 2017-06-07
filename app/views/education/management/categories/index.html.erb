@@ -11,7 +11,7 @@
       <div class="edu-categories-search row">
         <%= link_to t(".add"), "#", class: "btn btn-primary",
           data: {toggle: "modal", target: "#newCategoryModal"} %>
-        <%= render "search_form" %>
+        <%= render "search_form", query_categories: @query_categories %>
       </div>
       <div class="table-responsive" id="list_education_categories">
         <%= render "list", categories: @categories %>

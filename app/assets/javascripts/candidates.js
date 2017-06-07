@@ -11,12 +11,12 @@ var candidate = {
   apply_job: function() {
 
     $('body').on('click', '.apply_job', function() {
-      const url_path = window.location.pathname;
+      var url_path = window.location.pathname;
       $.ajax({
         url: url_path,
         type: 'GET',
         success: function(data){
-          const qualified_profile = data['qualified_profile'];
+          var qualified_profile = data['qualified_profile'];
           if(qualified_profile){
             $('#apply_job_modal').modal('show');
           }else {
@@ -27,8 +27,8 @@ var candidate = {
     });
 
     $(document).on('click', '#btn-apply-job-entry', {}, function(){
-      const job = $(this).attr('job');
-      const self = $('.apply_job');
+      var job = $(this).attr('job');
+      var self = $('.apply_job');
       $.ajax({
         url: '/candidates/',
         type: 'POST',
@@ -46,8 +46,8 @@ var candidate = {
 
   unapply_job: function() {
     $('body').on('click', '.cancel_apply_job', function() {
-      const self = $(this);
-      const job = $(this).attr('id');
+      var self = $(this);
+      var job = $(this).attr('id');
       $.ajax({
         url: '/candidates/' + job,
         type: 'DELETE',
@@ -60,4 +60,4 @@ var candidate = {
       return false;
     });
   }
-}
+};

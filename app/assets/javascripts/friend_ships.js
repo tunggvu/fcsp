@@ -25,7 +25,7 @@ var friend_ship = {
               .addClass('remove-request');
             self.empty();
             self.append('<span class="glyphicon glyphicon-remove"></span>'
-              + I18n.t('users.friend_ship_form.remove_request')) 
+              + I18n.t('users.friend_ship_form.remove_request'));
           }
           else {
             $.growl.error({message: data.flash});
@@ -97,4 +97,4 @@ var friend_ship = {
       return false;
     });
   }
-}
+};

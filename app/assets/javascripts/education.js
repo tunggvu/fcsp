@@ -23,7 +23,6 @@
 //= require cocoon
 //= require education/course
 //= require education/course_member
-//= require education/project_member
 //= require education/users
 //= require education/posts
 //= require education/rates
@@ -38,7 +37,7 @@ $(document).ready(function(){
   showEditForm('#btn-project-edit', '/education/projects/');
   showEditForm('#btn-course-edit', '/education/courses/');
   showEditForm('#btn-training-edit', '/education/trainings/');
-})
+});
 
 function showEditForm(object, path) {
   $(object).on('click', function(){
@@ -53,6 +52,6 @@ function showEditForm(object, path) {
         $('#edit-modal').modal('show');
         $('.datetimepicker').datepicker({dateFormat: 'dd/mm/yy'});
       }
-    })
-  })
+    });
+  });
 }

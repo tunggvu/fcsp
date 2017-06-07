@@ -1,6 +1,6 @@
-<%= load_team_image @team, class: "img-upload" %>
+<%= load_team_image team, class: "img-upload" %>
 <div class="container">
-  <%= form_for [:employer, @company, @team], class: "form-horizontal" do |f| %>
+  <%= form_for [:employer, company, team], class: "form-horizontal" do |f| %>
     <div class="form-group">
       <%= f.label :name, class: "control-label col-sm-2" %>
       <%= f.text_field :name, class: "form-control" %>

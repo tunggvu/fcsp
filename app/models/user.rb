@@ -1,6 +1,10 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  include ApplyJob
+  include BookmarkJob
+  include JobShare
+
   acts_as_follower
   has_friendship
   devise :database_authenticatable, :registerable,
@@ -142,31 +146,6 @@ class User < ApplicationRecord
   # def default_user_group
   #   user_groups.default
   # end
-
-  def bookmark job
-    bookmarks.create job_id: job.id
-  end
-
-  def unbookmark job
-    bookmarks.find_by(job_id: job.id).destroy
-  end
-
-  def apply_job job
-    candidates.create job_id: job.id
-  end
-
-  def unapply_job job
-    candidates.find_by(job_id: job.id).destroy if job.present?
-  end
-
-  def share job
-    shares.build job_id: job.id
-  end
-
-  def unshare job
-    unshare = shares.find_by(job_id: job.id)
-    unshare.destroy if unshare
-  end
 
   def is_user? user
     user == self

@@ -32,8 +32,8 @@
   </div>
   <div class="content-wrap">
     <div class="container clearfix" id="posts_result">
-      <%= render partial: "paginate",
-        locals: {index_post_object: @index_post_object} %>
+      <%= render "paginate",
+        index_post_object: @index_post_object %>
     </div>
   </div>
 </section>

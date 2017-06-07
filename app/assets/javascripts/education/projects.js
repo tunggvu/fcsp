@@ -7,13 +7,14 @@ function effect() {
   $('ul[data-liffect] li').each(function (i) {
     $(this).attr('style', 'animation-delay:' + i * 100 + 'ms;');
     if (i === $('ul[data-liffect] li').size() -1) {
-      $('ul[data-liffect]').addClass('play')
-  }});
+      $('ul[data-liffect]').addClass('play');
+    }
+  });
 }
 
 function load_more() {
-  size = $('.load-more-project').length;
-  x = 12;
+  var size = $('.load-more-project').length;
+  var x = 12;
   if(x >= size) {
     $('#more-project').hide();
     $('#next-project').show();
@@ -21,7 +22,7 @@ function load_more() {
   else {
     $('#next-project').hide();
     $('#more-project').show();
-  };
+  }
   $('.load-more-project:lt(' + size + ')').hide();
   $('.load-more-project:lt(' + x + ')').show();
   $('.read-more').click(function () {
@@ -30,7 +31,7 @@ function load_more() {
     if(x >= size){
       $('#more-project').hide();
       $('#next-project').show();
-      $("#back-project").show();
+      $('#back-project').show();
     }
   });
 }
@@ -42,7 +43,7 @@ $(document).ready(function() {
     if(confirm(status_alert)) {
       delete_project(id);
     }
-  })
+  });
 
   var onAddFile;
   onAddFile = function(event) {
@@ -67,9 +68,9 @@ $(document).ready(function() {
 
 function delete_project(id) {
   $.ajax({
-    type: "DELETE",
-    url: "/education/projects/" + id,
-    dataType: "json",
+    type: 'DELETE',
+    url: '/education/projects/' + id,
+    dataType: 'json',
     success: function(data) {
       if(data['status'] === 200) {
         $('#project-' + id).remove();
@@ -85,7 +86,7 @@ function delete_project(id) {
 }
 
 $(document).ready(function() {
-  $('#projects-search-txt').on('keyup',function(e) {
+  $('#projects-search-txt').on('keyup',function() {
     var term = $(this).val();
     var data = {term: term};
     $.get('projects', data, null, 'script');

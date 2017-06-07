@@ -24,4 +24,4 @@ function delete_feedback(id) {
       location.reload();
     }
   });
-};
+}

@@ -13,9 +13,9 @@ $(document).ready(function(){
         $('#' + tab).html($(data).find('#' + tab));
       },
       error: function(){
-        flash = I18n.t("education.users.page_not_found");
+        var flash = I18n.t('education.users.page_not_found');
         $.growl.error({message: flash});
       }
-    })
-  })
-})
+    });
+  });
+});

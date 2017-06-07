@@ -1,5 +1,5 @@
 <div class="static-main-body">
-  <%= form_for [:employer, @company],  html: {class: "form-horizontal form-label-left",
+  <%= form_for [:employer, company],  html: {class: "form-horizontal form-label-left",
     id: "edit_company_info"} do |f| %>
     <div class="form-group">
       <%= f.label :name, class: "control-label col-md-3 col-sm-3 col-xs-12" do %>
@@ -23,7 +23,7 @@
         <%= f.text_field :website, class: "form-control col-md-7 col-xs-12" %>
       </div>
     </div>
-    <%= render "address_fields", f: f %>
+    <%= render "address_fields", f: f, address: address %>
     <div class="form-group">
       <%= f.label :founder, class: "control-label col-md-3 col-sm-3 col-xs-12" %>
       <div class="col-md-6 col-sm-6 col-xs-12">
@@ -48,7 +48,7 @@
         <%= f.date_field :founder_on, class: "form-control col-md-7 col-xs-12" %>
       </div>
     </div>
-    <%= render "industry_fields", f: f %>
+    <%= render "industry_fields", f: f, industries: industries %>
     <%= render "no_load_data", f: f %>
   <% end %>
 </div>

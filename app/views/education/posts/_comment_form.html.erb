@@ -3,7 +3,7 @@
     <span> <%= t ".comment" %></span>
   </h3>
   <%= simple_form_for Education::Comment.new, remote: true,
-    url: education_post_comment_posts_path(@post, Education::Comment.new),
+    url: education_post_comment_posts_path(post, Education::Comment.new),
     class: "clearfix", id: "commentform" do |f| %>
 
     <%= f.label :comment %>

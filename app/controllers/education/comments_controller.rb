@@ -42,12 +42,12 @@ class Education::CommentsController < Education::BaseController
   end
 
   def load_project
-    @project = Education::Project.find_by id: params[:project_id]
-    render file: Settings.page_404_url unless @project
+    return if @project = Education::Project.find_by(id: params[:project_id])
+    redirect_to education_root_path
   end
 
   def load_comment
-    @comment = Education::Comment.find_by id: params[:id]
-    render file: Settings.page_404_url unless @comment
+    return if @comment = Education::Comment.find_by(id: params[:id])
+    redirect_to education_root_path
   end
 end

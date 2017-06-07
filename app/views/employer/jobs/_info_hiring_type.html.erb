@@ -1,10 +1,10 @@
-<%= form_for(@job, url: url, html: {class: "form-horizontal form-label-left"}) do |f| %>
+<%= form_for(job, url: url, html: {class: "form-horizontal form-label-left"}) do |f| %>
   <div class="form-group">
     <label class="control-label col-md-3 col-sm-3 col-xs-12"> <%= t ".looking_for" %>  <span class="required">*</span>
     </label>
     <div class="col-md-6 col-sm-6 col-xs-12">
       <%= f.select :type_of_candidates, Job::TYPEOFCANDIDATES,
-        {selected: @job.type_of_candidates}, class: "form-control" %>
+        {selected: job.type_of_candidates}, class: "form-control" %>
     </div>
   </div>
 
@@ -13,7 +13,7 @@
     </label>
     <div class="col-md-6 col-sm-6 col-xs-12">
       <ul class="collection-wrapper">
-        <%= f.collection_check_boxes :hiring_type_ids, @hiring_types,
+        <%= f.collection_check_boxes :hiring_type_ids, hiring_types,
           :id, :name do |hiring_type| %>
             <li>
               <%= hiring_type.check_box %>

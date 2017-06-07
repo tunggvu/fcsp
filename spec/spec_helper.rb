@@ -1,4 +1,5 @@
 require "simplecov"
+require "omniauth"
 SimpleCov.start "rails"
 
 RSpec.configure do |config|

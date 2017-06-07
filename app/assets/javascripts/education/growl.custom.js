@@ -1,6 +1,6 @@
 //= require js/jquery.growl
 
-growl = function(options) {
+var growl = function(options) {
   if (options == null) {
     options = {};
   }
@@ -13,8 +13,8 @@ growl.error = function(options) {
     options = {};
   }
   settings = {
-    title: "Error!",
-    style: "error"
+    title: 'Error!',
+    style: 'error'
   };
   return growl($.extend(settings, options));
 };
@@ -25,8 +25,8 @@ growl.notice = function(options) {
     options = {};
   }
   settings = {
-    title: "Notice!",
-    style: "notice"
+    title: 'Notice!',
+    style: 'notice'
   };
   return growl($.extend(settings, options));
 };
@@ -37,8 +37,8 @@ growl.warning = function(options) {
     options = {};
   }
   settings = {
-    title: "Warning!",
-    style: "warning"
+    title: 'Warning!',
+    style: 'warning'
   };
   return growl($.extend(settings, options));
 };

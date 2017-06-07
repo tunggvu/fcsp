@@ -47,7 +47,7 @@
                     </tr>
                   </thead>
                   <tbody class="jobs-list">
-                    <%= render "job", jobs: @jobs %>
+                    <%= render "job", jobs: @jobs, company: @company %>
                   </tbody>
                 </table>
               </div>
@@ -58,7 +58,7 @@
     </div>
   </div>
   <div class="pagination-job">
-    <%= render "paginate" %>
+    <%= render "paginate", jobs: @jobs %>
   </div>
   <input type="hidden" id="company-id" value="<%= @company.id %>">
 </div>

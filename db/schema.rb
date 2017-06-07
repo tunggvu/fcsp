@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170531225710) do
+ActiveRecord::Schema.define(version: 20170606014645) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -457,6 +457,8 @@ ActiveRecord::Schema.define(version: 20170531225710) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "blocker_id"
+    t.index ["friendable_id"], name: "index_friendships_on_friendable_id", using: :btree
+    t.index ["friendable_type"], name: "index_friendships_on_friendable_type", using: :btree
   end
 
   create_table "groups", force: :cascade do |t|
@@ -782,6 +784,8 @@ ActiveRecord::Schema.define(version: 20170531225710) do
     t.integer  "cover_image_id"
     t.integer  "avatar_id"
     t.string   "provider"
+    t.index ["avatar_id"], name: "index_users_on_avatar_id", using: :btree
+    t.index ["cover_image_id"], name: "index_users_on_cover_image_id", using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end

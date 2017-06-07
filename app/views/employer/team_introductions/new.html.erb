@@ -11,7 +11,7 @@
             <%= t ".team_introduction_#{n}" %>
           </button>
           <div class="row team-introduction-<%= n %>">
-            <%= render "form", n: n %>
+            <%= render "form", n: n, team_introduction: @team_introduction %>
           </div>
         </div>
       <% end %>

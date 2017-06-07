@@ -1,6 +1,6 @@
 $(document).ready(function(){
   $('.btn-technique-edit').on('click', function(){
-    var id = $(this).data("id");
+    var id = $(this).data('id');
     $.ajax({
       url: '/education/management/techniques/' + id + '/edit' ,
       type:'GET',
@@ -9,11 +9,14 @@ $(document).ready(function(){
         var html_text = xhr.responseText;
         $('#show-edit-form').html(html_text);
         $('#edit-modal').modal('show');
-        $('#myModalLabel').text(I18n.t("education.techniques.edit.edit_technique"));
+        $('#myModalLabel').text(I18n.t('education.techniques.edit.edit_technique'));
       }
-    })
-  })
-})
+    });
+  });
+  $('#show-new-form').click(function() {
+    showNewForm();
+  });
+});
 
 function showNewForm(){
   $.ajax({
@@ -24,7 +27,7 @@ function showNewForm(){
       var html_text = xhr.responseText;
       $('#show-edit-form').html(html_text);
       $('#edit-modal').modal('show');
-      $('#myModalLabel').text(I18n.t("education.techniques.new.create_technique"));
+      $('#myModalLabel').text(I18n.t('education.techniques.new.create_technique'));
     }
   });
 }

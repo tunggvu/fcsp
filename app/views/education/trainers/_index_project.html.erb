@@ -8,7 +8,7 @@
       <nav>
         <ul>
           <%= render "education/layouts/nav_filter",
-            {controller_name: "education/projects", techniques: @techniques} %>
+            {controller_name: "education/projects", techniques: techniques} %>
           <li class="project-search">
             <input type="text" id="projects-search-txt" class="form-control"
               placeholder= "<%= t ".placeholder_search" %>" autofocus>
@@ -38,12 +38,12 @@
         </div>
       </article>
       <%= render partial: "education/trainers/project",
-        collection: @projects %>
+        collection: projects %>
     </div>
   </div>
 </div>
 <div class="center">
-  <%= paginate @projects %>
+  <%= paginate projects %>
 </div>
 <div class="project-search">
   <div class="results" id="projects-search-results"></div>

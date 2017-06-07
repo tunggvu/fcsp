@@ -15,7 +15,7 @@
 </section>
 
 <% if current_user && can_manage?(Education::Project) %>
-  <%= render "education/trainers/index_project" %>
+  <%= render "education/trainers/index_project",  techniques: @techniques, projects: @projects %>
 <% else %>
   <div id="page-menu">
     <div id="page-menu-wrap">

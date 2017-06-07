@@ -24,4 +24,4 @@
 //= require gentelella
 //= require jqvmap/maps/jquery.vmap.world
 //= require jqvmap/maps/jquery.vmap.usa
-//= require_tree ./gentelella
+//= require_tree ../../../vendor/assets/javascripts/js/gentelella

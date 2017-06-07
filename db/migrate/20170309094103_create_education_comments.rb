@@ -11,6 +11,6 @@ class CreateEducationComments < ActiveRecord::Migration[5.0]
 
     # add_foreign_key :education_comments, :education_projects, column: :commentable_id
     # add_foreign_key :education_comments, :education_posts, column: :commentable_id
-    add_index :education_comments, [:commentable_id, :commentable_type], unique: true
+    add_index :education_comments, [:commentable_id, :commentable_type]
   end
 end

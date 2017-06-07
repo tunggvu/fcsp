@@ -10,15 +10,15 @@ $(document).ready(function(){
     var status = this.dataset.status;
     var username = this.dataset.username;
     switch(status) {
-      case "active":
-        var status_alert = username + ' ' + I18n.t('education.javascripts.active_alert');
-        break;
-      case "blocked":
-        var status_alert = username + ' ' + I18n.t('education.javascripts.block_alert');
-        break;
+    case 'active':
+      var status_alert = username + ' ' + I18n.t('education.javascripts.active_alert');
+      break;
+    case 'blocked':
+      status_alert = username + ' ' + I18n.t('education.javascripts.block_alert');
+      break;
     }
     if(confirm(status_alert)) {
-      edit_user(id, status)
+      edit_user(id, status);
     }
   });
 

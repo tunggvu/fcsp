@@ -26,7 +26,7 @@ $(document).ready(function() {
           $('.btn-filter').removeClass('open');
         },
         error: function() {
-          alert("error");
+          alert('error');
         },
       });
     }

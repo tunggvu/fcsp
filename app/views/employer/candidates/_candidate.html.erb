@@ -41,6 +41,7 @@
         <div class="popup-change-status"
           data-candidate-id="<%= candidate.id %>">
           <%= render "change_process", process: candidate.process %>
+          <%= render partial: "change_process", process: candidate.process %>
         </div>
       </span>
     </td>

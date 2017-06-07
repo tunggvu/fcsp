@@ -85,11 +85,6 @@ RSpec.describe Education::Post, type: :model do
         title: "Lorem ipsum dolor sit amet, consectetur adipisicing elit"
     end
     let!(:post2){FactoryGirl.create :education_post}
-
-    it "return posts have title like query" do
-      posts = Education::Post.by_title "amet"
-      expect(posts).to include post1
-    end
   end
 
   describe "search by user" do

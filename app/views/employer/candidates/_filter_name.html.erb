@@ -39,7 +39,7 @@
             </div>
           </div>
           <div class="list-item-value">
-            <% @object.candidates.each_with_index do |candidate, index| %>
+            <% object.candidates.each_with_index do |candidate, index| %>
               <div class="checkbox">
                 <input id="checkbox-name-<%= index + 1 %>"
                   data-list-id="<%= candidate.user.id %>" type="checkbox"

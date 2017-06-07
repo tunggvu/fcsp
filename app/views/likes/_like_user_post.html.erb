@@ -3,10 +3,16 @@
     <i class="i-circled icon-thumbs-up liked-icon"></i>
   <% end %>
   <br>
-  <i class="like-counter">
-    <%= t(".you_and_orthers_like",
-      count: post.likes_count - Settings.like.one)%>
-  </i>
+  <% if post.likes_count == Settings.like.one%>
+    <i class="like-counter">
+      <%= current_user.name %>
+    </i>
+  <% else %>
+    <i class="like-counter">
+      <%= t(".you_and_orthers_like",
+        count: post.likes_count - Settings.like.one)%>
+    </i>
+  <% end %>
 <% else %>
   <%= link_to user_post_likes_path(post), method: :post, remote: true do %>
     <i class="i-circled i-light icon-thumbs-up"></i>

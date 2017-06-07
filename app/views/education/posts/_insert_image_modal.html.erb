@@ -9,7 +9,7 @@
           <h5 class="modal-title"><%= t ".modal_header" %></h5>
       </div>
       <div class="modal-body">
-        <%= form_tag @user_image_object.new_image , id: "dropzone" do %>
+        <%= form_tag user_image_object.new_image , id: "dropzone" do %>
           <div class="dz-default dz-message"><span>
             <i class="fa fa-cloud-upload fa-3x" aria-hidden="true"></i>
             <br><%= t ".dropzone_hint" %></span>
@@ -17,9 +17,9 @@
         <% end %>
         <div id="preview-template" style="display: none;"></div>
         <div class="row mt-1">
-          <% if @user_image_object.user_education_images.any? %>
-            <%= render partial: "user_images",
-              locals: {images: @user_image_object.user_education_images} %>
+          <% if user_image_object.user_education_images.any? %>
+            <%= render "user_images",
+              images: user_image_object.user_education_images %>
           <% end %>
         </div>
       </div>

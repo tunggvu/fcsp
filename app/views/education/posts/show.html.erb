@@ -46,7 +46,7 @@
               <div class="post-article markdown">
                 <%= render html: markdown_render(@post.content).html_safe %>
               </div>
-              <%= render "tag_cloud_post" %>
+              <%= render "tag_cloud_post", post_object: @post_object %>
               <% if is_belong_to_user? @post, current_user %>
                 <div class="edit-delete-buttons">
                   <%= link_to t(".edit"), edit_education_post_path(@post),
@@ -58,12 +58,12 @@
               <div class="clear"></div>
                 <%= render "education/rates/score", object: @post %>
               <div class="clear"></div>
-                <%= render partial: "education/rates/rate",
-                  locals: {rateable_id: @post.id,
+                <%= render "education/rates/rate",
+                  rateable_id: @post.id,
                     rateable_type: Education::Post.name,
-                    rate: (@post_object.get_rate(current_user.id) if user_signed_in?)} %>
+                    rate: (@post_object.get_rate(current_user.id) if user_signed_in?) %>
               <div class="clear"></div>
-              <%= render "share_post" %>
+              <%= render "share_post", post: @post %>
             </div>
           </div>
           <div class="post-navigation clearfix">
@@ -77,12 +77,12 @@
             </div>
           </div>
           <div class="line"></div>
-          <%= render "posted_by" %>
+          <%= render "posted_by", post: @post %>
           <div class="line"></div>
           <h4><%= t ".related_posts" %></h4>
-          <%= render partial: "education/posts/related_post",
-            locals: {related_posts: @post_object.related_posts} %>
-          <%= render partial: "comments", locals: {post: @post} %>
+          <%= render "education/posts/related_post",
+            related_posts: @post_object.related_posts %>
+          <%= render "comments", post: @post, post_object: @post_object %>
         </div>
       </div>
       <div class="sidebar nobottommargin col_last clearfix">
@@ -96,13 +96,13 @@
                 <li><%= link_to t(".recent"), "#tabs-2" %></li>
               </ul>
               <div class="tab-container">
-                <%= render "popular_post" %>
-                <%= render "recent_post" %>
+                <%= render "popular_post", post_object: @post_object %>
+                <%= render "recent_post", post_object: @post_object %>
               </div>
             </div>
           </div>
           <%= render "portfolio_coursel" %>
-          <%= render "tag_cloud" %>
+          <%= render "tag_cloud", post_object: @post_object %>
         </div>
       </div>
     </div>

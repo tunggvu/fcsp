@@ -11,7 +11,7 @@
 <section id="content">
   <div class="content-wrap">
     <div class="container clearfix">
-      <%= simple_form_for @post do |f| %>
+      <%= simple_form_for post do |f| %>
         <%= f.input :title, class: "sm-form-control" %>
         <div class="row">
           <div class="col-md-3">
@@ -21,10 +21,10 @@
           <div class="col-md-9">
             <%= f.input :tag_list, class: "sm-form-control" %>
             <div class="hidden" id="post-tags">
-              <%= @post.tags.map{|tag| tag.name} %>
+              <%= post.tags.map{|tag| tag.name} %>
             </div>
             <div class="hidden" id="tags">
-              <%= @user_image_object.tags.map{|tag| tag.name} %>
+              <%= user_image_object.tags.map{|tag| tag.name} %>
             </div>
           </div>
         </div>
@@ -62,4 +62,4 @@
     </div>
   </div>
 </section>
-<%= render "insert_image_modal" %>
+<%= render "insert_image_modal", user_image_object: user_image_object %>

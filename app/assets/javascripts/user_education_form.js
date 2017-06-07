@@ -7,17 +7,17 @@ $(document).ready(function(){
 
   $('.graduation-datepicker').datepicker({
     format: 'MM yyyy',
-    viewMode: "months",
-    minViewMode: "months"
+    viewMode: 'months',
+    minViewMode: 'months'
   });
 
-  $('form.user-education-form').bind('ajax:success', function(event, xhr, settings) {
+  $('form.user-education-form').bind('ajax:success', function(event, xhr) {
     if(xhr['errors']) {
       $('.form-group').removeClass('has-error');
       $('span').remove('.help-block');
       var $form = $(this);
       if(xhr['errors']) {
-        $.map(xhr['errors'], function(v, k) {
+        $.map(xhr['errors'], function(v) {
           var element_id = '#school-search';
           var $divFormGroup = $form.find(element_id).parent();
           $divFormGroup.addClass('has-error');

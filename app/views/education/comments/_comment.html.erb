@@ -11,7 +11,7 @@
       <div class="comment-author">
         <%= comment.user_name %>
         <span>
-          <%=  comment.created_at.to_s unless comment.created_at.blank? %>
+          <%=  comment.created_at.to_s unless comment.created_at? %>
         </span>
       </div>
       <div class="comment-content">

@@ -184,6 +184,8 @@ $(document).ready(function() {
           button_process.attr('class', data.class_button);
           box_process.html(data.box_process);
         });
+      },
+      function () {
       });
   });
 
