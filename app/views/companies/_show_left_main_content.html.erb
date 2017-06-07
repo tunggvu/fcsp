@@ -31,7 +31,7 @@
       <div class="hide-tab clearfix" id="tab-news">
         <input type="hidden" id="company-id" value="<%= @company.id %>">
         <div class="show-article">
-          <%= render "articles", articles: @company_articles, company: @company %>
+          <%= render "articles", articles: @company_articles %>
         </div>
         <div class="pagination-article">
           <%= render "article_paginate", articles: @company_articles %>
