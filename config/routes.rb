@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {omniauth_callbacks: :omniauth_callbacks}
   root "pages#index"
   resources :companies, only: :show
+
   namespace :education do
     namespace :management do
       resources :groups, only: :index
@@ -87,4 +88,5 @@ Rails.application.routes.draw do
   resource :user_social_networks, only: :update
   resources :user_languages
   resources :organizations, only: :show
+  resources :articles, only: :show
 end

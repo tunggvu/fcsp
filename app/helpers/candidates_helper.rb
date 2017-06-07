@@ -4,8 +4,12 @@ module CandidatesHelper
   end
 
   def load_avatar_candidate candidate
-    image_tag candidate.avatar.present? ? candidate.avatar.picture :
-      PictureUploader.new.picture_url,
-      size: Settings.employer.candidates.avatar_size, class: "media-photo"
+    # rubocop:disable MultilineTernaryOperator
+    def load_avatar_candidate candidate
+      image_tag candidate.avatar.present? ? candidate.avatar.picture :
+        PictureUploader.new.picture_url,
+        size: Settings.employer.candidates.avatar_size, class: "media-photo"
+    end
+   # rubocop:enable MultilineTernaryOperator
   end
 end

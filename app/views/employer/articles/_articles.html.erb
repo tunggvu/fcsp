@@ -1,12 +1,12 @@
 <div>
-  <h2><%= t(".found_results", total: @total) if @total %></h2>
+  <span><%= t(".found_results", total: total) if total %></span>
 </div>
-<% @articles.each do |article| %>
+<% articles.each do |article| %>
   <div class="col-md-12 article-item">
     <div class="row">
       <div class="col-sm-3">
-        <%= image_tag(article.images.first.picture,
-          class: "pull-left img-responsive") %>
+        <%= image_tag article.background_image,
+          class: "pull-left size-default" %>
       </div>
       <div class="col-sm-9">
         <h4 class="article-title"><%= article.title.html_safe %></h4>
@@ -15,9 +15,9 @@
           <%= truncate strip_tags(article.description.html_safe),
             length: Settings.article.description_limit %>
         </p>
-        <%= link_to t(".edit"), edit_employer_company_article_path(@company, article),
+        <%= link_to t(".edit"), edit_employer_company_article_path(company, article),
           class: "btn btn-primary pull-right" %>
-        <%= link_to t(".delete"), employer_company_article_path(@company, article), method: :delete,
+        <%= link_to t(".delete"), employer_company_article_path(company, article), method: :delete,
           class: "btn btn-danger pull-right" %>
       </div>
     </div>

@@ -38,7 +38,7 @@ class Education::Post < ApplicationRecord
   end
 
   def next
-    Education::Post.where("id > ?",id).order(id: :asc).limit(1).first
+    Education::Post.where("id > ?", id).order(id: :asc).limit(1).first
   end
 
   def previous

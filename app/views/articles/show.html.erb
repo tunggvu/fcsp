@@ -1,0 +1,32 @@
+<%= content_for :javascript do %>
+  <%= javascript_include_tag "company" %>
+<% end %>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 article-show">
+  <header class="intro-header">
+    <%= hidden_field_tag "background", @article.background_image %>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          <div class="post-heading">
+            <h1><%= @article.title %></h1>
+            <h2 class="subheading"></h2>
+            <span class="meta">
+              <%= t ".post" %>
+              <%= link_to @article.company_name, company_path(@article.company) %>
+              <%= t ".time", time: l(@article.time_show, format: :long) %>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <article>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          <%= @article.content.html_safe %>
+        </div>
+      </div>
+    </div>
+  </article>
+</div>

@@ -1,6 +1,8 @@
 @import 'variables/color';
 
 article {
+  border: 0;
+
   p {
     text-align: justify;
   }
@@ -217,4 +219,57 @@ article {
     box-shadow: 0 0 0;
     height: 30px;
   }
+}
+
+.intro-header {
+  background: no-repeat center center;
+  background-attachment: scroll;
+  background-color: $gray;
+  background-size: cover;
+  margin-bottom: 50px;
+}
+
+.intro-header .site-heading,
+.intro-header .post-heading,
+.intro-header .page-heading {
+  color: $white;
+  padding: 100px 0 50px;
+}
+
+@media only screen and (min-width: 768px) {
+  .intro-header .site-heading,
+  .intro-header .post-heading,
+  .intro-header .page-heading {
+    padding: 150px 0;
+  }
+}
+
+.intro-header .site-heading,
+.intro-header .page-heading {
+  text-align: center;
+}
+
+.intro-header .site-heading h1,
+.intro-header .page-heading h1 {
+  font-size: 50px;
+  margin-top: 0;
+}
+
+.intro-header .site-heading .subheading,
+.intro-header .page-heading .subheading {
+  display: block;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.1;
+  margin: 10px 0 0;
+}
+
+.article-show {
+  background-color: $white;
+}
+
+.size-default {
+  height: 200px;
+  width: 310px;
 }

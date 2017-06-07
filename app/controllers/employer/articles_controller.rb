@@ -4,17 +4,18 @@ class Employer::ArticlesController < Employer::BaseController
   def index
     params[:type] ||= "time_show"
     params[:sort] ||= "DESC"
-    @articles = Article.select(:id, :title, :description, :time_show)
-      .search_form params[:search], params[:type], params[:sort]
-    @total = @articles.size if params[:search].present?
-    @articles = @articles.page(params[:page]).per Settings.article.page
+    articles_all = @company.articles.select(:id, :title, :description,
+      :time_show).search_form params[:search], params[:type], params[:sort]
+    @total = articles_all.size if params[:search].present?
+    @articles = articles_all.page(params[:page]).per Settings.article.page
 
     if request.xhr?
       render json: {
         html_article: render_to_string(partial: "articles",
-          articles: @articles, layout: false),
+          locals: {articles: @articles, total: @total, company: @company},
+          layout: false),
         pagination_article: render_to_string(partial: "articles/paginate",
-          layout: false)
+          locals: {articles: @articles}, layout: false)
       }
     else
       respond_to do |format|
@@ -23,16 +24,13 @@ class Employer::ArticlesController < Employer::BaseController
     end
   end
 
-  def show
-  end
-
   def new
-    @article = Article.new
+    @article = @company.articles.new
     @article.images.build
   end
 
   def create
-    @article = Article.new article_params
+    @article = @company.articles.new article_params
     @article.time_show = Time.zone.now unless @article.time_show?
 
     if @article.save
@@ -76,7 +74,7 @@ class Employer::ArticlesController < Employer::BaseController
   end
 
   def load_article
-    return if @article = Article.find_by(id: params[:id])
+    return if @article = @company.articles.find_by(id: params[:id])
     flash[:danger] = t ".not_found"
     redirect_to employer_company_articles_path @company
   end

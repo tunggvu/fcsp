@@ -3,7 +3,7 @@
     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <i class="fa fa-filter" aria-hidden="true"></i>
   </button>
-  <input type="hidden" id="company-id" value="<%= @company.id %>">
+  <%= hidden_field_tag "company-id", company.id %>
   <div class="dropdown-menu filter" data-filter="time_show"
     data-model="article" id="sort-item">
     <ul>

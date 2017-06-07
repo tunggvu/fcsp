@@ -935,6 +935,10 @@ en:
       title: " Title"
       time: " Time show"
       search: "Search"
+    show:
+      not_found: "Article not found"
+      post: "Posted by "
+      time: "on %{time}"
   organizations:
     show:
       org_infor: "This page content is totaled data based on FCSP users"

@@ -15,4 +15,4 @@ Rails.application.config.assets.precompile += %w(education/project_member.js adm
   education/management/group_users education/management/users job users friend_ship
   education/management/categories language_search org_search user_education user_education_form
   user_education_search_result ckeditor/filebrowser/images/gal_del.png awards
-  user_social_network user_link certificates user_portfolios)
+  user_social_network user_link certificates user_portfolios company.js article.scss)

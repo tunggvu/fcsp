@@ -11,7 +11,8 @@ module Supports
       if params[:type]
         listarr = params[:array_id]
         listarr = listarr.split(",").map(&:to_i) if listarr.class == String
-        sort_by = params[:sort].nil? ? "ASC" : params[:sort]
+        params[:sort] ? params[:sort] : "ASC"
+        sort_by = params[:sort]
         @teams = @company.teams.includes(:images)
           .filter(listarr, sort_by, params[:type])
           .page(params[:page]).per Settings.employer.team.per_page
@@ -19,7 +20,6 @@ module Supports
         @teams = @company.teams.includes(:images).page(params[:page])
           .per Settings.employer.team.per_page
       end
-      @teams
     end
   end
 end

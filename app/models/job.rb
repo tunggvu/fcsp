@@ -32,7 +32,8 @@ class Job < ApplicationRecord
 
   ATTRIBUTES = [:title, :describe, :type_of_candidates, :who_can_apply, :status,
     :company_id, :candidates_count, hiring_type_ids: [], team_ids: [],
-    images_attributes: [:id, :imageable_id, :imageable_type, :picture, :caption]]
+    images_attributes: [:id, :imageable_id, :imageable_type, :picture,
+    :caption]]
 
   TYPEOFCANDIDATES = Job.type_of_candidates
     .map{|temp,| [I18n.t(".type_of_candidates.#{temp}"), temp]}
