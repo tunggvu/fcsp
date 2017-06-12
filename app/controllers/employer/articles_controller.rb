@@ -26,7 +26,7 @@ class Employer::ArticlesController < Employer::BaseController
   end
 
   def create
-    @article = @company.articles.new article_params
+    @article = @company.articles.build article_params
     @article.time_show = Time.zone.now unless @article.time_show?
 
     if @article.save

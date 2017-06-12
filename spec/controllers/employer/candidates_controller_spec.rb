@@ -90,7 +90,7 @@ RSpec.describe Employer::CandidatesController, type: :controller do
         params: {company_id: company, array_id: arr_id_success, page: 1}}
       it "expect are" do
         expect{response.to change(Candidate, :count).by - 1}
-        expect(response).to have_http_status 200       
+        expect(response).to have_http_status 200
       end
     end
 

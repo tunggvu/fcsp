@@ -8,7 +8,6 @@ class Article < ApplicationRecord
   validates :title, presence: true
   validates :content, presence: true
   validates :description, presence: true
-  validates :images, presence: true
   validate :check_time_show
 
   delegate :name, to: :company, prefix: true
@@ -19,13 +18,14 @@ class Article < ApplicationRecord
     :caption]].freeze
 
   scope :search_form, ->(search, type, sort_by) do
-    where("LOWER(title) LIKE ? OR LOWER(description)
-      LIKE ?", "%#{search}%", "%#{search}%").order "#{type} #{sort_by}"
+    where("LOWER(title) LIKE ? OR LOWER(description) LIKE ?",
+      "%#{search}%", "%#{search}%").order "#{type} #{sort_by}"
   end
 
   # only use with user's view
-  scope :show, ->(time_show) do
-    where("#{time_show} <= ?", Time.now).order "#{time_show} DESC"
+  scope :time_filter, -> time_show do
+    where("#{time_show} <= ?", format_time(Time.zone.now, :format_datetime))
+      .order "#{time_show} DESC"
   end
 
   def background_image
