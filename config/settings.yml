@@ -218,7 +218,7 @@ info_users:
   ambition_form_rows: 7
   quote_form_rows: 2
   max_length_ambition: 255
-  max_length_quote: 255
+  max_length_quote: 150
 user_portfolio:
   textarea_rows: 4
   size_image: "340x200"

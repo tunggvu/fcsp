@@ -87,7 +87,7 @@ end
 group :test do
   gem "rspec-collection_matchers"
   gem "shoulda-matchers", "~> 3.0"
-  gem "database_cleaner", "~> 1.5"
+  gem "database_cleaner"
   gem "rubocop", "0.47.1", require: false
   gem "rubocop-checkstyle_formatter", require: false
   gem "scss_lint", require: false
@@ -101,6 +101,9 @@ group :test do
   gem "simplecov", require: false
   gem "rspec-activemodel-mocks"
   gem "webmock"
+  gem "capybara"
+  gem "selenium-webdriver"
+  gem "chromedriver-helper"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
