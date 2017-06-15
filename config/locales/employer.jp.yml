@@ -11,3 +11,13 @@ jp:
         confirm_delete: "本気ですか？"
         mess_text: "これを元に戻すことはできません！"
         confirm_text: "はい、削除してください！"
+    articles:
+      update:
+        update: "記事が更新されました"
+        fail: "記事が更新されなかった"
+    jobs:
+      not_found: "ジョブが見つかりません"
+      index:
+        job_recruitment: "仕事の募集"
+      info_hiring_type:
+        posting_time: "投稿時間"

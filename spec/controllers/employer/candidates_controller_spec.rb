@@ -53,13 +53,13 @@ RSpec.describe Employer::CandidatesController, type: :controller do
 
   describe "PUT #update" do
     it "request xhr, update candidates" do
-      patch :update, params: {company_id: company.id, type: 1, id: 10}, xhr: true
+      patch :update, params: {company_id: company.id, type: "apply", id: 10}, xhr: true
       expect(response).to render_template("employer/candidates/_change_process")
     end
 
     it "request xhr successfully, get follow type of candidates" do
       get :index, params: {company_id: company.id, select: job.id,
-        type: "process", sort: "ASC", array_id: [1, 2, 3], page: 1}, xhr: true
+        type: "apply", sort: "ASC", array_id: [1, 2, 3], page: 1}, xhr: true
       expect(response).to render_template("employer/candidates/_candidate")
       expect(response).to render_template("employer/candidates/_paginate")
     end

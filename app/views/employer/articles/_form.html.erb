@@ -1,5 +1,6 @@
 <%= render "layouts/message" %>
 <%= form_for [:employer, company, article], html: {class: "form-article"} do |f| %>
+  <%= render "shared/error_messages", object: article %>
   <div class="row">
     <div class="col-sm-4 form-left">
       <div class="form-group">
@@ -28,13 +29,15 @@
             <option value="now"><%= t ".now" %></option>
             <option value="time" selected="selected"><%= t ".time" %></option>
           </select>
-          <%= f.datetime_field :time_show %>
+          <%= f.text_field :time_show, class: "form-control datetimepicker",
+            value: format_time(article.time_show, :format_datetime) %>
         <% else %>
           <select name="show_time">
             <option value="now"><%= t ".now" %></option>
             <option value="time"><%= t ".time" %></option>
           </select>
-          <%= f.datetime_field :time_show, class: "hidden" %>
+          <%= f.text_field :time_show, class: "hidden form-control datetimepicker",
+            value: format_time(article.time_show, :format_datetime) %>
         <% end %>
       </div>
 

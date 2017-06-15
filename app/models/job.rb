@@ -1,4 +1,5 @@
 class Job < ApplicationRecord
+  include Concerns::CheckPostTime
   acts_as_paranoid
 
   include JobShare
@@ -34,9 +35,9 @@ class Job < ApplicationRecord
   delegate :name, to: :hiring_types, prefix: true
 
   ATTRIBUTES = [:title, :describe, :type_of_candidates, :who_can_apply, :status,
-    :company_id, :candidates_count, hiring_type_ids: [], team_ids: [],
-    images_attributes: [:id, :imageable_id, :imageable_type, :picture,
-      :caption]]
+    :company_id, :candidates_count, :posting_time, hiring_type_ids: [],
+    team_ids: [], images_attributes: [:id, :imageable_id, :imageable_type,
+      :picture, :caption]]
 
   TYPEOFCANDIDATES = Job.type_of_candidates
     .map{|temp,| [I18n.t(".type_of_candidates.#{temp}"), temp]}
@@ -47,6 +48,7 @@ class Job < ApplicationRecord
   validates :type_of_candidates, presence: true
   validates :who_can_apply, presence: true
   validates :profile_requests, presence: true
+  validate :check_posting_time
 
   scope :newest, ->{order created_at: :desc}
   # scope :all_job, ->{}
@@ -69,7 +71,13 @@ class Job < ApplicationRecord
       .distinct.limit Settings.posting_job.job_limit
   end
 
+  scope :job_posting_time, ->{where "posting_time <= ?", Time.zone.now}
+
   scope :delete_job, ->list_job do
     where("id IN (?)", list_job).destroy_all
+  end
+
+  def check_posting_time
+    check_time posting_time
   end
 end

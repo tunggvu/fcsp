@@ -21,6 +21,7 @@ en:
       update:
         now: "Now"
         update: "Article has been updated"
+        fail: "Article has been updated fail"
       destroy:
         delete: "Article has been deleted"
         fail: "Cannot delete this article"
@@ -96,6 +97,7 @@ en:
       success: "Success"
       danger: "Fails"
     jobs:
+      not_found: "Job not found"
       candidate_by_job:
         user: "User"
         id: "ID"
@@ -159,6 +161,7 @@ en:
         action: "Action"
         public: "Public"
         messages: "Messages"
+        job_recruitment: "Job recruitment"
       update:
         updated: "Updated!"
         failed: "Failed!"
@@ -207,6 +210,7 @@ en:
         community: "Community"
         preview: "Preview"
       info_hiring_type:
+        posting_time: "Posting time"
         image: "Image"
         caption: "Caption"
         looking_for: "Looking for"

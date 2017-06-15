@@ -67,6 +67,10 @@ module ApplicationHelper
     end
   end
 
+  def format_time time, format
+    I18n.l time, format: format if time
+  end
+
   def class_hidden object
     "hidden" unless object.present?
   end

@@ -11,3 +11,13 @@ vi:
         confirm_delete: "Bạn chắc chắn?"
         mess_text: "Bạn sẽ không thể lấy lại được nó!"
         confirm_text: "Có, xóa nó!"
+    articles:
+      update:
+        update: "Cập nhật thành công"
+        fail: "Cập nhật thất bại"
+    jobs:
+      not_found: "Không có thông tin tuyển dụng nào"
+      index:
+        job_recruitment: "Tuyển dụng"
+      info_hiring_type:
+        posting_time: "Thời gian đăng bài"

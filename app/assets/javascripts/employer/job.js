@@ -1,7 +1,35 @@
 $(document).ready(function() {
   draftjob.initialize();
   showCandidateByjob();
+  limitPostingTime.limitDay();
+  limitPostingTime.limitTime();
 });
+
+var limitPostingTime = {
+  limitDay: function() {
+    var minDate = Date.today();
+    var maxDate = Date.today().add(30).days();
+    $('.datetimepicker').datetimepicker({
+      step: 15,
+      onShow: function() {
+        this.setOptions({
+          minDate: minDate,
+          maxDate: maxDate
+        })
+      }
+    });
+  },
+  limitTime: function() {
+    $('.datetimepicker').on('change', function() {
+      var now = moment().format(I18n.t('time.formats.format_datetime_js'));
+      var time = $('.datetimepicker').val();
+      if(time < now) {
+        swal(I18n.t('invalid_time'));
+        $('.datetimepicker').val('');
+      }
+    });
+  }
+}
 
 function showCandidateByjob() {
   $('.show-candidates').on('click', function() {
