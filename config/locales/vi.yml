@@ -742,6 +742,7 @@ vi:
       success: "Cập nhật thành công!"
       fail: "Cập nhật thất bại!"
       infor_user_not_found: "Không tìm thấy thông tin!"
+      update_button: "Cập nhật"
     introduction:
       introduction: "Giới thiệu"
       edit: "Sửa"

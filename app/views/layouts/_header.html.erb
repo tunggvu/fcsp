@@ -80,7 +80,7 @@
           <%= render "friend_ships/friend_request" %>
           <%= render "jobs/message" %>
         <% end %>
-        <span class="dropdown profile">
+        <span class="dropdown profile" id="none-responsive">
           <% if user_signed_in? %>
             <button class="dropdown-toggle" type="button" data-toggle="dropdown">
               <%= load_user_avatar current_user if current_user %>

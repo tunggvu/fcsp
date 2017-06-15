@@ -729,6 +729,7 @@ en:
       success: "Updated Successfully!"
       fail: "Updated failed!"
       infor_user_not_found: "Information not found!"
+      update_button: "Update"
     introduction:
       introduction: "Introduction"
       edit: "Edit"
