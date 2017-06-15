@@ -931,6 +931,8 @@ en:
       read_more: "Read more"
       delete: "Delete"
       confirm_delete: "Are you sure?"
+    search_form:
+      search_placeholder: "Search..."
   growl_title:
     notice: "Notice!"
     error: "Error!"

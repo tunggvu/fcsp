@@ -944,6 +944,8 @@ vi:
       read_more: "Xem thêm"
       delete: "Xóa"
       confirm_delete: "Bạn chắc chắn không?"
+    search_form:
+      search_placeholder: "Tìm kiếm..."
   growl_title:
     notice: "Thông báo!"
     error: "Lỗi!"

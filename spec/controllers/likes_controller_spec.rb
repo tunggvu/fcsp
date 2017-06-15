@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe LikesController, type: :controller do
   let!(:user){FactoryGirl.create :user}
-  let!(:user_post){FactoryGirl.create :user_post}
+  let(:user_post){FactoryGirl.create :user_post}
 
   before :each do
     sign_in user

@@ -80,7 +80,7 @@ Rails.application.routes.draw do
   resources :user_educations, except: :show
   resources :user_links, except: [:show, :index]
   resources :share_posts, only: [:create, :destroy]
-  resources :user_posts, except: :index do
+  resources :user_posts do
     resources :comments, except: [:show, :new, :index]
     resources :likes, only: [:create, :destroy]
   end

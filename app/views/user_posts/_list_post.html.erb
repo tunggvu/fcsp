@@ -1,6 +1,3 @@
 <div id="list-user-post" class="small-thumbs">
   <%= render partial: "user_posts/user_post", locals: {user: user, posts: posts}  %>
 </div>
-<div class="center">
-  <%= paginate posts, param_name: "user_post_page" %>
-</div>

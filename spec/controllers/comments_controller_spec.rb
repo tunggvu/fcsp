@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.describe CommentsController, type: :controller do
   let!(:user){FactoryGirl.create :user}
   let!(:user2){FactoryGirl.create :user}
-  let!(:user_post){FactoryGirl.create :user_post}
+  let(:user_post){FactoryGirl.create :user_post}
   let!(:comment) do
     FactoryGirl.create :comment_user_post, user_id: user.id,
       post_id: user_post.id, content: "ABC"

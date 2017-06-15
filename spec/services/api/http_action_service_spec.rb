@@ -7,8 +7,6 @@ describe Api::HttpActionService do
   let(:http_action){Api::HttpActionService.new(uri, params)}
   let(:json_response){{data: "Success"}}
 
-  after(:each){WebMock.disable_net_connect!}
-
   describe "#get_data" do
     context "get json data success" do
       before do

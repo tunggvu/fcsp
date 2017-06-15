@@ -2,13 +2,13 @@
   <% posts.each do |post| %>
     <div id="posts" class="small-thumbs">
       <div class="entry clearfix">
-        <div class="entry-image post-thumb-image">
+        <div class="entry-image post-thumb-image user-post-image">
           <%= image_tag post.image %>
         </div>
         <div class="entry-c">
           <div class="entry-title">
             <h2>
-              <%= link_to education_post_path(post) do %>
+              <%= link_to user_post_path(post) do %>
                 <%= post.title %>
               <% end %>
             </h2>
@@ -40,7 +40,7 @@
               </li>
             <% end %>
           </ul>
-          <div class="entry-content">
+          <div class="entry-content user-post-content">
             <p>
               <%= truncate strip_tags(post.content),
                 length: Settings.post.max_length_truncate %>
@@ -60,4 +60,7 @@
       </div>
     </div>
   <% end %>
+  <div class="center">
+    <%= paginate posts, param_name: "user_post_page" %>
+  </div>
 <% end %>

@@ -2,10 +2,12 @@ require "rails_helper"
 
 RSpec.describe UserPostsController, type: :controller do
   let!(:user){FactoryGirl.create :user}
-  let!(:user_post){FactoryGirl.create :user_post, postable: user}
+  let(:user_post){FactoryGirl.create :user_post, postable: user}
   before do
     sign_in user
   end
+
+  before(:each){WebMock.allow_net_connect!}
 
   describe "GET #new" do
     context "logged in user" do

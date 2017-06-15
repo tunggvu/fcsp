@@ -62,6 +62,17 @@ namespace :db do
       InfoUser.create! user_id: user.id, introduce: Faker::Lorem.paragraph,
         address: "Da Nang, Viet Nam"
 
+      puts "Create user posts"
+      10.times do |i|
+        post_params = {
+          title: Faker::Lorem.sentence(3),
+          content: Faker::Lorem.paragraph(100),
+          postable_id: user.id,
+          postable_type: "User"
+        }
+        post = Post.create! post_params
+      end
+
       puts "Create jobs"
       2.times do |i|
         20.times do

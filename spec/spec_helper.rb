@@ -1,5 +1,8 @@
 require "simplecov"
 require "omniauth"
+require "webmock"
+
+WebMock.allow_net_connect!
 SimpleCov.start "rails"
 
 RSpec.configure do |config|

@@ -2,6 +2,18 @@ class UserPostsController < ApplicationController
   before_action :authenticate_user!
   before_action :correct_user, only: [:edit, :update, :destroy]
 
+  def index
+    search = params[:post_search].present? ? params[:post_search] : nil
+    @posts = if search
+               Post.search(search)
+    else
+      Post.all
+    end
+    respond_to do |format|
+      format.js
+    end
+  end
+
   def new
     @post = current_user.posts.build
   end

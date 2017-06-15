@@ -1,11 +1,16 @@
 <div class="row">
-  <% if user.is_user? current_user %>
-    <%= link_to new_user_post_path,
-      class: "button button-3d button-small button-rounded button-green
-        button-light button-white-text btn-add-user-education" do %>
-      <span class="icon-plus-sign"></span> <%= t ".add" %>
+  <div class="col-md-10">
+    <%= render "user_posts/search_form" %>
+  </div>
+  <div class="col-md-2">
+    <% if user.is_user? current_user %>
+      <%= link_to new_user_post_path,
+        class: "button button-3d button-small button-rounded button-green
+          button-light button-white-text btn-add-user-education" do %>
+        <span class="icon-plus-sign"></span> <%= t ".add" %>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 </div>
 <br>
 <div class="row">

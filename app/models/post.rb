@@ -1,4 +1,5 @@
 class Post < ApplicationRecord
+  searchkick
   include PostShare
 
   belongs_to :postable, polymorphic: true
